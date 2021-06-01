@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G5023d" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CollectionGame" representedClassName="CollectionGame" syncable="YES">
+        <attribute name="backgroundImage" attributeType="String"/>
+        <attribute name="descripitionRaw" attributeType="String"/>
+        <attribute name="developers" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Developer]"/>
+        <attribute name="esrbRating" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="ESRBRating"/>
+        <attribute name="genres" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Genres]"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="platforms" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Platforms]"/>
+        <attribute name="publishers" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Publisher]"/>
+        <attribute name="released" optional="YES" attributeType="String"/>
+        <attribute name="stores" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Stores]"/>
+        <attribute name="uniqueID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="website" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="WishListGame" representedClassName="WishListGame" syncable="YES">
+        <attribute name="backgroundImage" attributeType="String"/>
+        <attribute name="descripitionRaw" attributeType="String"/>
+        <attribute name="developers" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Developer]"/>
+        <attribute name="esrbRating" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="ESRBRating"/>
+        <attribute name="genres" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Genres]"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="platforms" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Platforms]"/>
+        <attribute name="publishers" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Publisher]"/>
+        <attribute name="released" optional="YES" attributeType="String"/>
+        <attribute name="stores" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Stores]"/>
+        <attribute name="uniqueID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="website" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CollectionGame" positionX="-63" positionY="-18" width="128" height="209"/>
+        <element name="WishListGame" positionX="-54" positionY="99" width="128" height="209"/>
+    </elements>
+</model>

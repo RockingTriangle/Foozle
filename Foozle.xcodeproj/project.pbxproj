@@ -1,0 +1,682 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1324C09E26616E7900288E98 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1324C09D26616E7900288E98 /* View+Ext.swift */; };
+		13596E9D2664043200B693C4 /* FoozleWishListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13596E9C2664043200B693C4 /* FoozleWishListButton.swift */; };
+		13596E9F2664059300B693C4 /* FoozleCollectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13596E9E2664059300B693C4 /* FoozleCollectionButton.swift */; };
+		13596EA126642B8E00B693C4 /* StoreLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13596EA026642B8E00B693C4 /* StoreLinks.swift */; };
+		13800A622662D15100362B57 /* FoozleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13800A612662D15100362B57 /* FoozleCollectionCell.swift */; };
+		13800A642662D19A00362B57 /* FoozleCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13800A632662D19A00362B57 /* FoozleCollectionHeader.swift */; };
+		13800A672662D1F200362B57 /* FoozleCollectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13800A662662D1F200362B57 /* FoozleCollectionFooter.swift */; };
+		13A015812666C07F00EB44D7 /* WishListGame+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0157D2666C07E00EB44D7 /* WishListGame+CoreDataClass.swift */; };
+		13A015822666C07F00EB44D7 /* WishListGame+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0157E2666C07F00EB44D7 /* WishListGame+CoreDataProperties.swift */; };
+		13A015832666C07F00EB44D7 /* CollectionGame+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0157F2666C07F00EB44D7 /* CollectionGame+CoreDataClass.swift */; };
+		13A015842666C07F00EB44D7 /* CollectionGame+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A015802666C07F00EB44D7 /* CollectionGame+CoreDataProperties.swift */; };
+		13A82CCB265D6B7E00E56243 /* FoozleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A82CCA265D6B7E00E56243 /* FoozleApp.swift */; };
+		13A82CCF265D6B7F00E56243 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A82CCE265D6B7F00E56243 /* Assets.xcassets */; };
+		13A82CD2265D6B7F00E56243 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A82CD1265D6B7F00E56243 /* Preview Assets.xcassets */; };
+		13A82D0C265D736D00E56243 /* Foozle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13A82D0A265D736D00E56243 /* Foozle.xcdatamodeld */; };
+		13A82D10265D752000E56243 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A82D0F265D752000E56243 /* CoreDataManager.swift */; };
+		13A82D1B265D879300E56243 /* FoozleTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A82D1A265D879300E56243 /* FoozleTabView.swift */; };
+		13A82D1D265D89C700E56243 /* FoozleRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A82D1C265D89C700E56243 /* FoozleRowCell.swift */; };
+		13A82D1F265DC65B00E56243 /* ViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A82D1E265DC65B00E56243 /* ViewHeader.swift */; };
+		13A82D21265DCD6B00E56243 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A82D20265DCD6B00E56243 /* HomeView.swift */; };
+		13A82D23265DD36200E56243 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A82D22265DD36200E56243 /* SearchView.swift */; };
+		13A82D26265DD49900E56243 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A82D25265DD49900E56243 /* SearchBar.swift */; };
+		13E5D05C265DDB5200465409 /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5D05B265DDB5200465409 /* GameDetailView.swift */; };
+		13E5D05E265DE3E100465409 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5D05D265DE3E100465409 /* NetworkManager.swift */; };
+		13E5D066265DEC7300465409 /* FoozleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5D065265DEC7300465409 /* FoozleError.swift */; };
+		13E5D068265DEC8B00465409 /* FoozleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5D067265DEC8B00465409 /* FoozleAlert.swift */; };
+		13E5D06A265DF1EE00465409 /* GameGeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5D069265DF1EE00465409 /* GameGeneralResponse.swift */; };
+		13E5D06C265DF82F00465409 /* FoozleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5D06B265DF82F00465409 /* FoozleViewModel.swift */; };
+		13E5D06E265E00EF00465409 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5D06D265E00EF00465409 /* RemoteImage.swift */; };
+		13E5D070265E036600465409 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5D06F265E036600465409 /* LoadingView.swift */; };
+		13E5D0782660268500465409 /* UIScreen+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5D0772660268500465409 /* UIScreen+Ext.swift */; };
+		13E5D07B26602F1700465409 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5D07A26602F1700465409 /* CollectionView.swift */; };
+		13E6B9E8266566C70062A061 /* CoreDataProtocol+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E6B9E7266566C70062A061 /* CoreDataProtocol+Ext.swift */; };
+		13F887622660621D00CB7D08 /* FoozleDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F887612660621D00CB7D08 /* FoozleDismissButton.swift */; };
+		13F887642660794600CB7D08 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F887632660794600CB7D08 /* MockData.swift */; };
+		13F88766266087D900CB7D08 /* GameDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F88765266087D900CB7D08 /* GameDetailResponse.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1324C09D26616E7900288E98 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		13596E9C2664043200B693C4 /* FoozleWishListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleWishListButton.swift; sourceTree = "<group>"; };
+		13596E9E2664059300B693C4 /* FoozleCollectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleCollectionButton.swift; sourceTree = "<group>"; };
+		13596EA026642B8E00B693C4 /* StoreLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLinks.swift; sourceTree = "<group>"; };
+		13800A612662D15100362B57 /* FoozleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleCollectionCell.swift; sourceTree = "<group>"; };
+		13800A632662D19A00362B57 /* FoozleCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleCollectionHeader.swift; sourceTree = "<group>"; };
+		13800A662662D1F200362B57 /* FoozleCollectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleCollectionFooter.swift; sourceTree = "<group>"; };
+		13A0157D2666C07E00EB44D7 /* WishListGame+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishListGame+CoreDataClass.swift"; sourceTree = "<group>"; };
+		13A0157E2666C07F00EB44D7 /* WishListGame+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishListGame+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		13A0157F2666C07F00EB44D7 /* CollectionGame+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionGame+CoreDataClass.swift"; sourceTree = "<group>"; };
+		13A015802666C07F00EB44D7 /* CollectionGame+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionGame+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		13A82CC7265D6B7E00E56243 /* Foozle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foozle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13A82CCA265D6B7E00E56243 /* FoozleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleApp.swift; sourceTree = "<group>"; };
+		13A82CCE265D6B7F00E56243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		13A82CD1265D6B7F00E56243 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		13A82CD3265D6B7F00E56243 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13A82D0B265D736D00E56243 /* Foozle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Foozle.xcdatamodel; sourceTree = "<group>"; };
+		13A82D0F265D752000E56243 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		13A82D1A265D879300E56243 /* FoozleTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleTabView.swift; sourceTree = "<group>"; };
+		13A82D1C265D89C700E56243 /* FoozleRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleRowCell.swift; sourceTree = "<group>"; };
+		13A82D1E265DC65B00E56243 /* ViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHeader.swift; sourceTree = "<group>"; };
+		13A82D20265DCD6B00E56243 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		13A82D22265DD36200E56243 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		13A82D25265DD49900E56243 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		13E5D05B265DDB5200465409 /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
+		13E5D05D265DE3E100465409 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		13E5D065265DEC7300465409 /* FoozleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleError.swift; sourceTree = "<group>"; };
+		13E5D067265DEC8B00465409 /* FoozleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleAlert.swift; sourceTree = "<group>"; };
+		13E5D069265DF1EE00465409 /* GameGeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGeneralResponse.swift; sourceTree = "<group>"; };
+		13E5D06B265DF82F00465409 /* FoozleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleViewModel.swift; sourceTree = "<group>"; };
+		13E5D06D265E00EF00465409 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		13E5D06F265E036600465409 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		13E5D0772660268500465409 /* UIScreen+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Ext.swift"; sourceTree = "<group>"; };
+		13E5D07A26602F1700465409 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		13E6B9E7266566C70062A061 /* CoreDataProtocol+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataProtocol+Ext.swift"; sourceTree = "<group>"; };
+		13F887612660621D00CB7D08 /* FoozleDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleDismissButton.swift; sourceTree = "<group>"; };
+		13F887632660794600CB7D08 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		13F88765266087D900CB7D08 /* GameDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailResponse.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13A82CC4265D6B7E00E56243 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13800A652662D1A300362B57 /* Collection View Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				13800A632662D19A00362B57 /* FoozleCollectionHeader.swift */,
+				13800A662662D1F200362B57 /* FoozleCollectionFooter.swift */,
+			);
+			path = "Collection View Subviews";
+			sourceTree = "<group>";
+		};
+		13A82CBE265D6B7E00E56243 = {
+			isa = PBXGroup;
+			children = (
+				13A82CC9265D6B7E00E56243 /* Foozle */,
+				13A82CC8265D6B7E00E56243 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		13A82CC8265D6B7E00E56243 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13A82CC7265D6B7E00E56243 /* Foozle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		13A82CC9265D6B7E00E56243 /* Foozle */ = {
+			isa = PBXGroup;
+			children = (
+				13A82CE9265D6CFF00E56243 /* Resources */,
+				13A82CD9265D6B8B00E56243 /* Model */,
+				13A82CDB265D6B9700E56243 /* Views */,
+				13A82CDA265D6B9200E56243 /* Utilities */,
+				13A82CDC265D6B9B00E56243 /* Screens */,
+				13A82CD0265D6B7F00E56243 /* Preview Content */,
+			);
+			path = Foozle;
+			sourceTree = "<group>";
+		};
+		13A82CD0265D6B7F00E56243 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				13A82CD1265D6B7F00E56243 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		13A82CD9265D6B8B00E56243 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13E6B9EA26656F9F0062A061 /* Helper Models */,
+				13E6B9E926656F880062A061 /* Network Data */,
+				13E6B9B9266544330062A061 /* Core Data */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		13A82CDA265D6B9200E56243 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				13A82CE8265D6CB300E56243 /* Alerts */,
+				13A82CE7265D6CAE00E56243 /* Extensions */,
+				13A82CE6265D6CA600E56243 /* Manager */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		13A82CDB265D6B9700E56243 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				13A82D24265DD46400E56243 /* Search Bar */,
+				13A82CE4265D6C4D00E56243 /* Labels */,
+				13A82CE3265D6C3400E56243 /* Buttons */,
+				13A82CE2265D6C1E00E56243 /* Images */,
+				13A82CE1265D6C1900E56243 /* Cells */,
+				13A82CE0265D6BDE00E56243 /* UIKit Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		13A82CDC265D6B9B00E56243 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				13A82CCA265D6B7E00E56243 /* FoozleApp.swift */,
+				13E6B9EB26656FF00062A061 /* View Models */,
+				13A82D19265D877900E56243 /* FoozleTabView */,
+				13A82CDD265D6BA800E56243 /* Home View */,
+				13A82CDE265D6BC900E56243 /* SearchView */,
+				13E5D07926602F0700465409 /* CollectionView */,
+				13A82CDF265D6BD000E56243 /* GameDetailView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		13A82CDD265D6BA800E56243 /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				13A82D20265DCD6B00E56243 /* HomeView.swift */,
+			);
+			path = "Home View";
+			sourceTree = "<group>";
+		};
+		13A82CDE265D6BC900E56243 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				13A82D22265DD36200E56243 /* SearchView.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		13A82CDF265D6BD000E56243 /* GameDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				13E5D05B265DDB5200465409 /* GameDetailView.swift */,
+			);
+			path = GameDetailView;
+			sourceTree = "<group>";
+		};
+		13A82CE0265D6BDE00E56243 /* UIKit Components */ = {
+			isa = PBXGroup;
+			children = (
+				13E5D06F265E036600465409 /* LoadingView.swift */,
+			);
+			path = "UIKit Components";
+			sourceTree = "<group>";
+		};
+		13A82CE1265D6C1900E56243 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				13A82D1C265D89C700E56243 /* FoozleRowCell.swift */,
+				13800A612662D15100362B57 /* FoozleCollectionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		13A82CE2265D6C1E00E56243 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				13E5D06D265E00EF00465409 /* RemoteImage.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		13A82CE3265D6C3400E56243 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				13F887612660621D00CB7D08 /* FoozleDismissButton.swift */,
+				13596E9E2664059300B693C4 /* FoozleCollectionButton.swift */,
+				13596E9C2664043200B693C4 /* FoozleWishListButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		13A82CE4265D6C4D00E56243 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				13A82D1E265DC65B00E56243 /* ViewHeader.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		13A82CE6265D6CA600E56243 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				13A82D0D265D74F300E56243 /* NetworkManager */,
+				13A82D0E265D74FB00E56243 /* CoreDataManager */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		13A82CE7265D6CAE00E56243 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				13E5D0772660268500465409 /* UIScreen+Ext.swift */,
+				1324C09D26616E7900288E98 /* View+Ext.swift */,
+				13E6B9E7266566C70062A061 /* CoreDataProtocol+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		13A82CE8265D6CB300E56243 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				13E5D065265DEC7300465409 /* FoozleError.swift */,
+				13E5D067265DEC8B00465409 /* FoozleAlert.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		13A82CE9265D6CFF00E56243 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				13A82CCE265D6B7F00E56243 /* Assets.xcassets */,
+				13A82CD3265D6B7F00E56243 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		13A82D0D265D74F300E56243 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				13E5D05D265DE3E100465409 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		13A82D0E265D74FB00E56243 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				13A82D0F265D752000E56243 /* CoreDataManager.swift */,
+			);
+			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		13A82D19265D877900E56243 /* FoozleTabView */ = {
+			isa = PBXGroup;
+			children = (
+				13A82D1A265D879300E56243 /* FoozleTabView.swift */,
+			);
+			path = FoozleTabView;
+			sourceTree = "<group>";
+		};
+		13A82D24265DD46400E56243 /* Search Bar */ = {
+			isa = PBXGroup;
+			children = (
+				13A82D25265DD49900E56243 /* SearchBar.swift */,
+			);
+			path = "Search Bar";
+			sourceTree = "<group>";
+		};
+		13E5D07926602F0700465409 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				13E5D07A26602F1700465409 /* CollectionView.swift */,
+				13800A652662D1A300362B57 /* Collection View Subviews */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		13E6B9B9266544330062A061 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				13A0157D2666C07E00EB44D7 /* WishListGame+CoreDataClass.swift */,
+				13A0157E2666C07F00EB44D7 /* WishListGame+CoreDataProperties.swift */,
+				13A0157F2666C07F00EB44D7 /* CollectionGame+CoreDataClass.swift */,
+				13A015802666C07F00EB44D7 /* CollectionGame+CoreDataProperties.swift */,
+				13A82D0A265D736D00E56243 /* Foozle.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		13E6B9E926656F880062A061 /* Network Data */ = {
+			isa = PBXGroup;
+			children = (
+				13E5D069265DF1EE00465409 /* GameGeneralResponse.swift */,
+				13F88765266087D900CB7D08 /* GameDetailResponse.swift */,
+			);
+			path = "Network Data";
+			sourceTree = "<group>";
+		};
+		13E6B9EA26656F9F0062A061 /* Helper Models */ = {
+			isa = PBXGroup;
+			children = (
+				13F887632660794600CB7D08 /* MockData.swift */,
+				13596EA026642B8E00B693C4 /* StoreLinks.swift */,
+			);
+			path = "Helper Models";
+			sourceTree = "<group>";
+		};
+		13E6B9EB26656FF00062A061 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				13E5D06B265DF82F00465409 /* FoozleViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		13A82CC6265D6B7E00E56243 /* Foozle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13A82CD6265D6B7F00E56243 /* Build configuration list for PBXNativeTarget "Foozle" */;
+			buildPhases = (
+				13A82CC3265D6B7E00E56243 /* Sources */,
+				13A82CC4265D6B7E00E56243 /* Frameworks */,
+				13A82CC5265D6B7E00E56243 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Foozle;
+			productName = Foozle;
+			productReference = 13A82CC7265D6B7E00E56243 /* Foozle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		13A82CBF265D6B7E00E56243 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					13A82CC6265D6B7E00E56243 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = 13A82CC2265D6B7E00E56243 /* Build configuration list for PBXProject "Foozle" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 13A82CBE265D6B7E00E56243;
+			productRefGroup = 13A82CC8265D6B7E00E56243 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13A82CC6265D6B7E00E56243 /* Foozle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		13A82CC5265D6B7E00E56243 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13A82CD2265D6B7F00E56243 /* Preview Assets.xcassets in Resources */,
+				13A82CCF265D6B7F00E56243 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		13A82CC3265D6B7E00E56243 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1324C09E26616E7900288E98 /* View+Ext.swift in Sources */,
+				13A82CCB265D6B7E00E56243 /* FoozleApp.swift in Sources */,
+				13F887622660621D00CB7D08 /* FoozleDismissButton.swift in Sources */,
+				13A015842666C07F00EB44D7 /* CollectionGame+CoreDataProperties.swift in Sources */,
+				13596EA126642B8E00B693C4 /* StoreLinks.swift in Sources */,
+				13E5D06C265DF82F00465409 /* FoozleViewModel.swift in Sources */,
+				13A82D21265DCD6B00E56243 /* HomeView.swift in Sources */,
+				13E5D07B26602F1700465409 /* CollectionView.swift in Sources */,
+				13E5D068265DEC8B00465409 /* FoozleAlert.swift in Sources */,
+				13A015832666C07F00EB44D7 /* CollectionGame+CoreDataClass.swift in Sources */,
+				13800A622662D15100362B57 /* FoozleCollectionCell.swift in Sources */,
+				13E5D06E265E00EF00465409 /* RemoteImage.swift in Sources */,
+				13A82D1D265D89C700E56243 /* FoozleRowCell.swift in Sources */,
+				13A82D10265D752000E56243 /* CoreDataManager.swift in Sources */,
+				13E5D0782660268500465409 /* UIScreen+Ext.swift in Sources */,
+				13596E9F2664059300B693C4 /* FoozleCollectionButton.swift in Sources */,
+				13E5D05C265DDB5200465409 /* GameDetailView.swift in Sources */,
+				13800A672662D1F200362B57 /* FoozleCollectionFooter.swift in Sources */,
+				13E6B9E8266566C70062A061 /* CoreDataProtocol+Ext.swift in Sources */,
+				13596E9D2664043200B693C4 /* FoozleWishListButton.swift in Sources */,
+				13E5D06A265DF1EE00465409 /* GameGeneralResponse.swift in Sources */,
+				13A015812666C07F00EB44D7 /* WishListGame+CoreDataClass.swift in Sources */,
+				13A82D26265DD49900E56243 /* SearchBar.swift in Sources */,
+				13800A642662D19A00362B57 /* FoozleCollectionHeader.swift in Sources */,
+				13E5D070265E036600465409 /* LoadingView.swift in Sources */,
+				13A82D0C265D736D00E56243 /* Foozle.xcdatamodeld in Sources */,
+				13E5D05E265DE3E100465409 /* NetworkManager.swift in Sources */,
+				13A015822666C07F00EB44D7 /* WishListGame+CoreDataProperties.swift in Sources */,
+				13F887642660794600CB7D08 /* MockData.swift in Sources */,
+				13F88766266087D900CB7D08 /* GameDetailResponse.swift in Sources */,
+				13A82D1F265DC65B00E56243 /* ViewHeader.swift in Sources */,
+				13A82D1B265D879300E56243 /* FoozleTabView.swift in Sources */,
+				13E5D066265DEC7300465409 /* FoozleError.swift in Sources */,
+				13A82D23265DD36200E56243 /* SearchView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		13A82CD4265D6B7F00E56243 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		13A82CD5265D6B7F00E56243 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		13A82CD7265D6B7F00E56243 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Foozle/Preview Content\"";
+				DEVELOPMENT_TEAM = 3YUN5S2WTZ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Foozle/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rockingtriangle.Foozle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		13A82CD8265D6B7F00E56243 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Foozle/Preview Content\"";
+				DEVELOPMENT_TEAM = 3YUN5S2WTZ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Foozle/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rockingtriangle.Foozle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		13A82CC2265D6B7E00E56243 /* Build configuration list for PBXProject "Foozle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13A82CD4265D6B7F00E56243 /* Debug */,
+				13A82CD5265D6B7F00E56243 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13A82CD6265D6B7F00E56243 /* Build configuration list for PBXNativeTarget "Foozle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13A82CD7265D6B7F00E56243 /* Debug */,
+				13A82CD8265D6B7F00E56243 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		13A82D0A265D736D00E56243 /* Foozle.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				13A82D0B265D736D00E56243 /* Foozle.xcdatamodel */,
+			);
+			currentVersion = 13A82D0B265D736D00E56243 /* Foozle.xcdatamodel */;
+			path = Foozle.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 13A82CBF265D6B7E00E56243 /* Project object */;
+}
