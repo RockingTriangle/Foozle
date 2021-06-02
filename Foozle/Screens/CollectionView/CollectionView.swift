@@ -26,13 +26,11 @@ struct CollectionView: View {
                 .ignoresSafeArea()
 
             Divider()
-                .padding(.top, 8)
             
             ZStack {
                 Color(.clear)
-                Text("My Games")
+                Text("My Games (\(gameCollection.count))")
                     .font(Font.title.uppercaseSmallCaps())
-                    .bold()
             }
             .frame(width: UIScreen.screenWidth, height: 50, alignment: .center)
             
@@ -40,15 +38,15 @@ struct CollectionView: View {
             let rows = [GridItem(.flexible()), GridItem(.flexible())]
             
             ScrollView(.horizontal) {
-                LazyHGrid(rows: rows, pinnedViews: [.sectionHeaders, .sectionFooters]) {
-                    Section(header: FoozleCollectionHeader(imageLabel: "books.vertical"),
-                            footer: FoozleCollectionFooter(amountOfGames: "\(gameCollection.count)")) {
+                LazyHGrid(rows: rows) {
+                    Section(header: FoozleCollectionHeader(imageLabel: "books.vertical")) {
                         ForEach(gameCollection) { game in
                             FoozleCollectionCell(game: game as CollectionGame)
-                                .padding(4)
+                                .padding(2)
                         }
                     }
                 }
+                .padding(.bottom, 8)
             }
             .frame(minHeight: UIScreen.screenHeight * 0.3)
             .padding(.horizontal, 8)
@@ -58,27 +56,24 @@ struct CollectionView: View {
             
             ZStack {
                 Color(.clear)
-                Text("My Wishlist")
-                    .font(Font.title.uppercaseSmallCaps())
-                    .bold()
+                Text("My Wishlist (\(gameWishList.count))")
+                    .font(Font.headline.uppercaseSmallCaps())
             }
             .frame(width: UIScreen.screenWidth, height: 50, alignment: .center)
 
             ScrollView(.horizontal) {
-                LazyHGrid(rows: rows, pinnedViews: [.sectionHeaders, .sectionFooters]) {
-                    Section(header: FoozleCollectionHeader(imageLabel: "gift"),
-                            footer: FoozleCollectionFooter(amountOfGames: "\(gameWishList.count)")) {
+                LazyHGrid(rows: rows) {
+                    Section(header: FoozleCollectionHeader(imageLabel: "gift")) {
                         ForEach(gameWishList) { game in
                             FoozleCollectionCell(game: game as WishListGame)
-                                .padding(4)
+                                .padding(2)
                         }
                     }
                 }
             }
             .frame(minHeight: UIScreen.screenHeight * 0.3)
             .padding(.horizontal, 8)
-            
-            Spacer(minLength: 30)
+            Spacer(minLength: 10)
         }        
     }
 }

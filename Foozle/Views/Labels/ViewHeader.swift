@@ -35,7 +35,7 @@ struct ViewHeader: View {
             }
             .padding()
         }
-        .frame(height: 160)
+        .frame(height: UIScreen.screenHeight / 7)
         .padding(.bottom, -50)
     }
 }

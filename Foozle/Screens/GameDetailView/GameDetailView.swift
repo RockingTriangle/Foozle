@@ -23,7 +23,7 @@ struct GameDetailView: View {
 
     @State private var opacity: Double = 0
         
-    var stores: [Link<Text>] {
+    var stores: [Link<Image>] {
         StoreLinks.displayStoreLinks(game.stores)
     }
     
@@ -104,42 +104,50 @@ struct GameDetailView: View {
                         .padding(.top, 8)
                     
                     Spacer()
-                        .frame(height: 0)
+                        .frame(height: 8)
                                         
-                    let columns = getStoreColumns()
+                    let rows = [GridItem()]
                     
                     HStack(alignment: .center) {
                         Spacer()
                         if stores.count == 0 {
                             Text("No stores available")
+                                .fixedSize()
                         } else if stores.count == 1 {
                             stores[0]
-                                .foregroundColor(.blue)
-                                .font(Font.body.uppercaseSmallCaps())
-                                .fixedSize()
+                                .frame(width: 30, height: 30)
+                                .aspectRatio(contentMode: .fit)
+                                .background(Color(.white))
                         } else {
-                            LazyVGrid(columns: columns, content: {
+                            LazyHGrid(rows: rows, content: {
                                 ForEach(0 ..< stores.count) { store in
                                     stores[store]
-                                        .foregroundColor(.blue)
-                                        .font(Font.body.uppercaseSmallCaps())
-                                        .fixedSize()
+                                        .frame(width: 30, height: 30)
+                                        .aspectRatio(contentMode: .fit)
+                                        .background(Color(.white))
+                                        .padding(.horizontal, 8)
                                 }
                             })
                         }
                         Spacer()
                     }
+                    
                     Spacer()
-                        .frame(height: 8)
+                        .frame(height: 20)
+                    
                     Text("Website")
                         .bold()
+                    Spacer()
+                        .frame(height: 4)
                     
                     if let website = URL(string: viewModel.additionalGameDetail?.website ?? "") {
-                        Link(game.name, destination: website)
-                            .foregroundColor(.blue)
-                            .multilineTextAlignment(.center)
-                            .lineLimit(2)
-                            .padding(.bottom, 8)
+                        HStack {
+                            Link(game.name, destination: website)
+                            Image(systemName: "arrowshape.turn.up.right")
+                        }
+                        .foregroundColor(.blue)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 8)
                     } else {
                         Text("Not available")
                             .padding(.bottom, 8)
@@ -240,7 +248,7 @@ struct GameDetailView: View {
             }
         }
         .opacity(opacity)
-        .animate(using: .easeIn(duration: 1), {
+        .animate(using: .easeIn(duration: 3), {
             opacity = 1
         })
         .onAppear {
@@ -248,31 +256,12 @@ struct GameDetailView: View {
             viewModel.getAdditionalGameDetails()
             UITabBar.appearance().isUserInteractionEnabled = false
         }
-        .frame(width: UIScreen.screenWidth - 48, height: UIScreen.screenHeight * 0.55)
+        .frame(width: UIScreen.screenWidth - 48, height: UIScreen.screenHeight * 0.80)
         .background(Color(.systemBackground))
         .cornerRadius(24)
         .shadow(radius: 40)
         Spacer()
             .frame(height: UIScreen.screenHeight / 8)
-    }
-    
-    func getStoreColumns() -> [GridItem] {
-        var columns: [GridItem] = []
-        
-        switch stores.count {
-        case 1:
-            columns = [GridItem(.fixed(200))]
-        case 2:
-            columns = [GridItem(.fixed(150)), GridItem(.fixed(150))]
-        case 3:
-            columns = [GridItem(.fixed(100)), GridItem(.fixed(100)), GridItem(.fixed(100))]
-        case 4:
-            columns = [GridItem(.fixed(150)), GridItem(.fixed(150))]
-        default:
-            columns = [GridItem(.fixed(100)), GridItem(.fixed(100)), GridItem(.fixed(100))]
-        }
-        
-        return columns
     }
     
 } // End of struct
