@@ -57,7 +57,7 @@ struct CollectionView: View {
             ZStack {
                 Color(.clear)
                 Text("My Wishlist (\(gameWishList.count))")
-                    .font(Font.headline.uppercaseSmallCaps())
+                    .font(Font.title.uppercaseSmallCaps())
             }
             .frame(width: UIScreen.screenWidth, height: 50, alignment: .center)
 
