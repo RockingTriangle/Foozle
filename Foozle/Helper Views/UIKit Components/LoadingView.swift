@@ -31,4 +31,5 @@ struct LoadingView: View {
             }
         }
     }
+    
 } // End of struct

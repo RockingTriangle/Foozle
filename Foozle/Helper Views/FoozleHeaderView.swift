@@ -1,5 +1,5 @@
 //
-//  ViewHeader.swift
+//  FoozleHeaderView.swift
 //  Foozle
 //
 //  Created by Mike Conner on 5/25/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ViewHeader: View {
+struct FoozleHeaderView: View {
     var body: some View {
         let gradient = Gradient(colors: [.white, .gray, .white, .gray, .white, .gray, .white])
         let nonCenteredAngularGradient = AngularGradient(gradient: gradient, center: .center, startAngle: .degrees(160), endAngle: .degrees(380))
@@ -42,6 +42,6 @@ struct ViewHeader: View {
 
 struct ViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        ViewHeader()
+        FoozleHeaderView()
     }
 }

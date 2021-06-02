@@ -9,16 +9,16 @@ import SwiftUI
 
 struct SearchView: View {
     
-    @State private var searchText = ""
     @ObservedObject var viewModel: FoozleViewModel
+    @State private var searchText = ""
 
     var body: some View {
         VStack {
             Group {
-                ViewHeader()
+                FoozleHeaderView()
                     .ignoresSafeArea()
                 if !viewModel.isShowingDetail {
-                    SearchBar(text: $searchText, viewModel: viewModel)
+                    SearchBarView(text: $searchText, viewModel: viewModel)
                 }                
                 NavigationView {
                     List(viewModel.gamesFromSearch) { game in

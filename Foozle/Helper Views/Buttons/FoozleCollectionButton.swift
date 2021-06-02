@@ -27,9 +27,3 @@ struct FoozleCollectionButton: View {
         }
     }
 }
-
-//struct FoozleCollectionButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FoozleCollectionButton(isInCollection: true)
-//    }
-//}

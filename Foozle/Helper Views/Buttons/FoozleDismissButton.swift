@@ -21,9 +21,3 @@ struct FoozleDismissButton: View {
         }
     }
 }
-
-struct FoozleDismissButton_Previews: PreviewProvider {
-    static var previews: some View {
-        FoozleDismissButton()
-    }
-}

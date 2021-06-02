@@ -14,7 +14,7 @@ struct HomeView: View {
     var body: some View {
         VStack(alignment: .center) {
             Group {
-                ViewHeader()
+                FoozleHeaderView()
                     .ignoresSafeArea()
                 NavigationView {
                     List() {
@@ -38,9 +38,6 @@ struct HomeView: View {
             if viewModel.isShowingDetail {
                 GameDetailView(game: viewModel.selectedGame!, viewModel: viewModel, isShowingDetail: $viewModel.isShowingDetail)
             }
-//            if viewModel.isLoading {
-//                LoadingView()
-//            }
         }
         .onAppear {
             viewModel.gamesFromMainView.count == 0 ? viewModel.getGamesForMainView() : nil

@@ -248,7 +248,7 @@ struct GameDetailView: View {
             }
         }
         .opacity(opacity)
-        .animate(using: .easeIn(duration: 3), {
+        .animate(using: .easeIn(duration: 1), {
             opacity = 1
         })
         .onAppear {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class GameDetailResponse: Codable {
+struct GameDetailResponse: Codable {
     let publishers: [Publisher]?
     let developers: [Developer]?
     let descriptionRaw: String
@@ -51,4 +51,4 @@ final class GameDetailResponse: Codable {
         return developerString
     }
 
-}
+}// End of class

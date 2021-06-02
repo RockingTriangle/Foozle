@@ -27,9 +27,3 @@ struct FoozleWishListButton: View {
         }
     }
 }
-
-//struct FoozleWishListButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FoozleWishListButton(isOnWishList: true)
-//    }
-//}

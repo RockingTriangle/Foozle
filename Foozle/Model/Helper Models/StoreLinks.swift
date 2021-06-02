@@ -24,11 +24,8 @@ struct StoreLinks {
     static func displayStoreLinks(_ stores: [GameGeneralResponse.GameResponse.Stores]?) -> [Link<Image>] {
         
         var storesArray = [Link<Image>]()
-        
         if let stores = stores {
-        
-            for store in stores {
-                
+            for store in stores {                
                 switch store.store.name.lowercased() {
                 case "steam":
                     storesArray.append(steam)
@@ -57,7 +54,6 @@ struct StoreLinks {
         } else {
             storesArray = []
         }
-        
         return storesArray
     }
     
