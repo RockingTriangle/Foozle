@@ -38,6 +38,7 @@ struct GameDetailView: View {
                                 if selectedGame.name == game.name {
                                     game.isInCollection = true
                                     viewModel.isInCollection = true
+                                    break
                                 } else {
                                     game.isInCollection = false
                                     viewModel.isInCollection = false
@@ -59,6 +60,7 @@ struct GameDetailView: View {
                                 if selectedGame.name == game.name {
                                     game.isOnWishList = true
                                     viewModel.isOnWishList = true
+                                    break
                                 } else {
                                     game.isOnWishList = false
                                     viewModel.isOnWishList = false

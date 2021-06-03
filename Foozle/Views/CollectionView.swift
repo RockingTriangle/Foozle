@@ -43,6 +43,12 @@ struct CollectionView: View {
                         ForEach(gameCollection) { game in
                             FoozleCollectionCell(game: game as CollectionGame)
                                 .padding(2)
+                                .onTapGesture {
+//                                    viewModel.selectedGame = game as GameGeneralResponse.GameResponse
+//                                    viewModel.isShowingDetail = true
+//                                    viewModel.isInCollection = viewModel.selectedGame!.isInCollection
+//                                    viewModel.isOnWishList = viewModel.selectedGame!.isOnWishList
+                                }
                         }
                     }
                 }
@@ -74,7 +80,10 @@ struct CollectionView: View {
             .frame(minHeight: UIScreen.screenHeight * 0.3)
             .padding(.horizontal, 8)
             Spacer(minLength: 10)
-        }        
+        }
+        .onDisappear {
+            viewModel.isShowingDetail = false
+        }
     }
 }
 

@@ -9,6 +9,14 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(entity: CollectionGame.entity(), sortDescriptors: [])
+    var gameCollection: FetchedResults<CollectionGame>
+    
+    @FetchRequest(entity: WishListGame.entity(), sortDescriptors: [])
+    var gameWishList: FetchedResults<WishListGame>
+    
     @ObservedObject var viewModel: FoozleViewModel
     
     var body: some View {
