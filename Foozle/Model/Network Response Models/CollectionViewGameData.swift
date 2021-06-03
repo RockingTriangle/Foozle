@@ -1,20 +1,14 @@
 //
-//  GameGeneralResponse.swift
+//  CollectionViewGameData.swift
 //  Foozle
 //
-//  Created by Mike Conner on 5/25/21.
+//  Created by Mike Conner on 6/2/21.
 //
 
 import SwiftUI
 
-struct GameGeneralResponse: Codable {
+struct CollectionViewGameData: Codable {
     
-    let results: [GameResponse]
-    
-} // End of struct
-
-
-struct GameResponse: Codable, Identifiable {
     let id: Int
     let name: String
     let backgroundImage: String?
@@ -23,12 +17,14 @@ struct GameResponse: Codable, Identifiable {
     let genres: [Genres]?
     let stores: [Stores]?
     let esrbRating: ESRBRating?
+    let publishers: [Publisher]?
+    let developers: [Developer]?
+    let descriptionRaw: String
+    let website: String
     
     lazy var isInCollection: Bool = false
     lazy var isOnWishList: Bool = false
     
-    
-    // MARK: - Functions
     func displayBackgroundImage() -> String {
         backgroundImage != nil ? backgroundImage! : "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noResults.png"
     }
@@ -60,7 +56,7 @@ struct GameResponse: Codable, Identifiable {
                 genresString += ", "
             }
         }
-        return genresString            
+        return genresString
     }
     
     func displayStoreData() -> String {
@@ -80,7 +76,7 @@ struct GameResponse: Codable, Identifiable {
     func displayESRBData() -> String {
         esrbRating != nil ? esrbRating!.name : "Not available"
     }
-    
+            
     mutating func toggleIsInCollection() {
         isInCollection.toggle()
     }
@@ -89,32 +85,32 @@ struct GameResponse: Codable, Identifiable {
         isOnWishList.toggle()
     }
     
-} // End of struct
-
-struct Platforms: Codable {
-    let platform: Platform
-} // End of struct
-
-struct Platform: Codable, Identifiable {
-    let id: Int
-    let name: String
-}
-
-struct Genres: Codable, Identifiable {
-    let id: Int
-    let name: String
-} // End of struct
-
-struct Stores: Codable {
-    let store: Store
-} // End of struct
-
-struct Store: Codable, Identifiable {
-    let id: Int
-    let name: String
-}
-
-struct ESRBRating: Codable, Identifiable {
-    let id: Int
-    let name: String
+    func displayPublisherData() -> String {
+        var publisherString = ""
+        guard let gamePublishers = publishers, gamePublishers.count != 0 else {
+            return "Not available"
+        }
+        for publisher in gamePublishers {
+            publisherString += publisher.name
+            if publisher.id != publishers?.last?.id {
+                publisherString += ", "
+            }
+        }
+        return publisherString
+    }
+    
+    func displayDeveloperData() -> String {
+        var developerString = ""
+        guard let gameDevelopers = developers, gameDevelopers.count != 0 else {
+            return "Not available"
+        }
+        for developer in gameDevelopers {
+            developerString += developer.name
+            if developer.id != developers?.last?.id {
+                developerString += ", "
+            }
+        }
+        return developerString
+    }
+    
 } // End of struct

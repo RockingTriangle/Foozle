@@ -93,7 +93,7 @@ struct CoreDataManager {
         save()
     }
     
-    func delete(game: GameGeneralResponse.GameResponse, from collection: FetchedResults<CollectionGame>) {
+    func delete(game: GameResponse, from collection: FetchedResults<CollectionGame>) {
         
         for index in (0 ..< collection.count) {
             if collection[index].name == game.name {
@@ -110,7 +110,7 @@ struct CoreDataManager {
         save()
     }
     
-    func delete(game: GameGeneralResponse.GameResponse, from collection: FetchedResults<WishListGame>) {
+    func delete(game: GameResponse, from collection: FetchedResults<WishListGame>) {
         
         for index in (0 ..< collection.count) {
             if collection[index].name == game.name {
