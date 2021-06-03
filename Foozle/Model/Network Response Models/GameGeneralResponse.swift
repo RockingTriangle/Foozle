@@ -16,6 +16,7 @@ struct GameGeneralResponse: Codable {
 
 struct GameResponse: Codable, Identifiable {
     let id: Int
+    let slug: String
     let name: String
     let backgroundImage: String?
     let released: String?

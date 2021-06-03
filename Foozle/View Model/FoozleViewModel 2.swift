@@ -9,36 +9,28 @@ import SwiftUI
 
 final class FoozleViewModel: ObservableObject {
     
-    @Published var gamesFromMainView: [GameResponse] = []
-    @Published var gamesFromSearch: [GameResponse] = []
+    @Published var gamesFromMainView: [GameGeneralResponse.GameResponse] = []
+    @Published var gamesFromSearch: [GameGeneralResponse.GameResponse] = []
 
-    @Published var selectedGame: GameResponse?
+    @Published var selectedGame: GameGeneralResponse.GameResponse?
     @Published var additionalGameDetail: GameDetailResponse?
     @Published var selectedGameBackgroundImage: Image?
     @Published var isInCollection: Bool?
     @Published var isOnWishList: Bool?
     
-    @Published var collectionViewSlugName = ""
-    
     @Published var isLoading = false
     @Published var isShowingDetail = false
-    @Published var isShowingCollectionDetail = false
-    @Published var isShowingSettings = false
-    
-    @Published var sortingSetting: NetworkManager.Sorting = .none
-    @Published var platformSetting: NetworkManager.Platforms = .all
-    @Published var genreSetting: NetworkManager.Genres = .all
     
     @Published var foozleAlert: FoozleAlertItem?
 
     @Published var searchText: String = ""
-    
-    @Published var refresh: Bool = true
 
     
     func getGamesForMainView() {
-        NetworkManager.shared.getHighestRatedGames(endpoint: .games, sorting: .released, searchTerm: nil) { [self] result in
+        isLoading = true
+        NetworkManager.shared.getHighestRatedGames(endpoint: .games, sorting: .reverseAdded, searchTerm: nil) { [self] result in
             DispatchQueue.main.async {
+                isLoading = false
                 switch result {
                 case .success(let games):
                     self.gamesFromMainView = games
@@ -59,8 +51,10 @@ final class FoozleViewModel: ObservableObject {
     }
     
     func getGamesFromSearch() {
-        NetworkManager.shared.getHighestRatedGames(endpoint: .games, sorting: .released, searchTerm: searchText) { [self] result in
+        isLoading = true
+        NetworkManager.shared.getHighestRatedGames(endpoint: .games, sorting: .reverseAdded, searchTerm: searchText) { [self] result in
             DispatchQueue.main.async {
+                isLoading = false
                 switch result {
                 case .success(let games):
                     self.gamesFromSearch = []
@@ -82,8 +76,10 @@ final class FoozleViewModel: ObservableObject {
     }
     
     func getAdditionalGameDetails() {
+        isLoading = true
         NetworkManager.shared.getGameData(endpoint: .games, id: selectedGame!.id) { [self] result in
             DispatchQueue.main.async {
+                isLoading = false
                 switch result {
                 case .success(let gameDetail):
                     additionalGameDetail = gameDetail
@@ -101,37 +97,6 @@ final class FoozleViewModel: ObservableObject {
                 }
             }
         }
-    }
-    
-    func getCollectionViewGameDetails(collection: Bool, wishList: Bool) {
-        NetworkManager.shared.getGameDataForCollectionView(endpoint: .games, slug: collectionViewSlugName) { [self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let gameDetail):
-                    convertGameData(game: gameDetail, collection: collection, wishList: wishList)
-                case .failure(let error):
-                    switch error {
-                    case .invalidData:
-                        foozleAlert = FoozleAlertContext.invalidData
-                    case .invalidResponse:
-                        foozleAlert = FoozleAlertContext.invalidResponse
-                    case .invalidURL:
-                        foozleAlert = FoozleAlertContext.invalidURL
-                    case .unableToComplete:
-                        foozleAlert = FoozleAlertContext.unableToComplete
-                    }
-                }
-            }
-        }
-    }
-    
-    func convertGameData(game: CollectionViewGameData, collection: Bool, wishList: Bool) {
-        let collectionGame = GameResponse(id: 99, slug: game.slug, name: game.name, backgroundImage: game.backgroundImage, released: game.released, platforms: game.platforms, genres: game.genres, stores: game.stores, esrbRating: game.esrbRating, isInCollection: collection, isOnWishList: wishList)
-        
-        selectedGame = collectionGame
-        isInCollection = collection
-        isOnWishList = wishList
-        isShowingCollectionDetail = true
     }
     
 } // End of class

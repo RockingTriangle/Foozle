@@ -9,8 +9,14 @@ import SwiftUI
 
 struct FoozleWishListButton: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(entity: WishListGame.entity(), sortDescriptors: [])
+    var gameWishList: FetchedResults<WishListGame>
+        
+    @State var game: GameResponse
     @ObservedObject var viewModel: FoozleViewModel
-
+    
     var body: some View {
         ZStack {
             Circle()
@@ -22,8 +28,27 @@ struct FoozleWishListButton: View {
                 .frame(width: 44, height: 44)
                 .foregroundColor(viewModel.isOnWishList ?? false ? .white : .black)
         }
-        .onAppear {
-
+        .onAppear{
+            for selectedGame in gameWishList {
+                if selectedGame.name == game.name {
+                    game.isOnWishList = true
+                    viewModel.isOnWishList = true
+                    break
+                } else {
+                    game.isOnWishList = false
+                    viewModel.isOnWishList = false
+                }
+            }
+        }
+        .onTapGesture {
+            viewModel.refresh.toggle()
+            if game.isOnWishList {
+                CoreDataManager.shared.delete(game: game, from: gameWishList)
+            } else {
+                CoreDataManager.shared.addGameToWishList(from: viewModel)
+            }
+            game.isOnWishList.toggle()
+            viewModel.isOnWishList?.toggle()
         }
     }
 }

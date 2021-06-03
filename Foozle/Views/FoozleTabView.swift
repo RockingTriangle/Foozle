@@ -14,27 +14,31 @@ struct FoozleTabView: View {
     @StateObject var viewModel = FoozleViewModel()
     
     var body: some View {
-        TabView {
-            HomeView(viewModel: viewModel)
-                .tabItem {
-                    Image(systemName: "newspaper")
-                    Text("Trending")
-                        .tag(1)
-                }
-            SearchView(viewModel: viewModel)
-                .tabItem {
-                    Image(systemName: "binoculars")
-                    Text("Search")
-                        .tag(2)
-                }
-            CollectionView(viewModel: viewModel)
-                .tabItem {
-                    Image(systemName: "books.vertical")
-                    Text("Collection")
-                        .tag(3)
-                }
+        if viewModel.isShowingSettings {
+            SearchSettingView(viewModel: viewModel, sorting: viewModel.sortingSetting, platform: viewModel.platformSetting, genre: viewModel.genreSetting)
+        } else {
+            TabView {
+                HomeView(viewModel: viewModel)
+                    .tabItem {
+                        Image(systemName: "newspaper")
+                        Text("Trending")
+                            .tag(1)
+                    }
+                SearchView(viewModel: viewModel)
+                    .tabItem {
+                        Image(systemName: "binoculars")
+                        Text("Search")
+                            .tag(2)
+                    }
+                CollectionView(viewModel: viewModel)
+                    .tabItem {
+                        Image(systemName: "books.vertical")
+                        Text("Collection")
+                            .tag(3)
+                    }
+            }
+            .accentColor(.primary)
         }
-        .accentColor(.primary)
     }
 }
 
