@@ -20,69 +20,75 @@ struct CollectionView: View {
     @ObservedObject var viewModel: FoozleViewModel
     
     var body: some View {
-        VStack(spacing: 0) {
-            
-            FoozleHeaderView()
-                .ignoresSafeArea()
-
-            Divider()
-            
-            ZStack {
-                Color(.clear)
-                Text("My Games (\(gameCollection.count))")
-                    .font(Font.title.uppercaseSmallCaps())
-            }
-            .frame(width: UIScreen.screenWidth, height: 50, alignment: .center)
-            
-            
-            let rows = [GridItem(.flexible()), GridItem(.flexible())]
-            
-            ScrollView(.horizontal) {
-                LazyHGrid(rows: rows) {
-                    Section(header: FoozleCollectionHeader(imageLabel: "books.vertical")) {
-                        ForEach(gameCollection) { game in
-                            FoozleCollectionCell(game: game as CollectionGame)
-                                .padding(2)
-                                .onTapGesture {
-//                                    viewModel.selectedGame = game as GameGeneralResponse.GameResponse
-//                                    viewModel.isShowingDetail = true
-//                                    viewModel.isInCollection = viewModel.selectedGame!.isInCollection
-//                                    viewModel.isOnWishList = viewModel.selectedGame!.isOnWishList
+        ZStack {
+            VStack(alignment: .center, spacing: 0) {
+                Group {
+                    FoozleHeaderView()
+                        .ignoresSafeArea()
+                    
+                    Divider()
+                    
+                    ZStack {
+                        Color(.clear)
+                        Text("My Games (\(gameCollection.count))")
+                            .font(Font.title.uppercaseSmallCaps())
+                    }
+                    .frame(width: UIScreen.screenWidth, height: 50, alignment: .center)
+                    
+                    
+                    let rows = [GridItem(.flexible()), GridItem(.flexible())]
+                    
+                    ScrollView(.horizontal) {
+                        LazyHGrid(rows: rows) {
+                            Section(header: FoozleCollectionHeader(imageLabel: "books.vertical")) {
+                                ForEach(gameCollection) { game in
+                                    FoozleCollectionCell(game: game as CollectionGame)
+                                        .padding(2)
+                                        .onTapGesture {
+                                            viewModel.collectionViewSlugName = game.name
+                                            viewModel.getCollectionViewGameDetails(collection: true, wishList: false)
+                                        }
                                 }
+                            }
+                        }
+                        .padding(.bottom, 8)
+                    }
+                    .frame(minHeight: UIScreen.screenHeight * 0.3)
+                    .padding(.horizontal, 8)
+                    .padding(.bottom, 16)
+                    
+                    Divider()
+                    
+                    ZStack {
+                        Color(.clear)
+                        Text("My Wishlist (\(gameWishList.count))")
+                            .font(Font.title.uppercaseSmallCaps())
+                    }
+                    .frame(width: UIScreen.screenWidth, height: 50, alignment: .center)
+                    ScrollView(.horizontal) {
+                        LazyHGrid(rows: rows) {
+                            Section(header: FoozleCollectionHeader(imageLabel: "gift")) {
+                                ForEach(gameWishList) { game in
+                                    FoozleCollectionCell(game: game as WishListGame)
+                                        .padding(2)
+                                }
+                            }
                         }
                     }
+                    .frame(minHeight: UIScreen.screenHeight * 0.3)
+                    .padding(.horizontal, 8)
+                    Spacer(minLength: 10)
                 }
-                .padding(.bottom, 8)
+                .blur(radius: viewModel.isShowingCollectionDetail ? 20 : 0)
             }
-            .frame(minHeight: UIScreen.screenHeight * 0.3)
-            .padding(.horizontal, 8)
-            .padding(.bottom, 16)
+            .onDisappear {
+                viewModel.isShowingCollectionDetail = false
+            }
             
-            Divider()
+            if viewModel.isShowingCollectionDetail {
+                CollectionGameDetailView(game: viewModel.selectedGame!, viewModel: viewModel, isShowingCollectionDetail: $viewModel.isShowingCollectionDetail)
+            }
             
-            ZStack {
-                Color(.clear)
-                Text("My Wishlist (\(gameWishList.count))")
-                    .font(Font.title.uppercaseSmallCaps())
-            }
-            .frame(width: UIScreen.screenWidth, height: 50, alignment: .center)
-
-            ScrollView(.horizontal) {
-                LazyHGrid(rows: rows) {
-                    Section(header: FoozleCollectionHeader(imageLabel: "gift")) {
-                        ForEach(gameWishList) { game in
-                            FoozleCollectionCell(game: game as WishListGame)
-                                .padding(2)
-                        }
-                    }
-                }
-            }
-            .frame(minHeight: UIScreen.screenHeight * 0.3)
-            .padding(.horizontal, 8)
-            Spacer(minLength: 10)
-        }
-        .onDisappear {
-            viewModel.isShowingDetail = false
         }
     }
 }

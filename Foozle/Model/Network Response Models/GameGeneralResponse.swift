@@ -23,34 +23,7 @@ struct GameGeneralResponse: Codable {
         
         lazy var isInCollection: Bool = false
         lazy var isOnWishList: Bool = false
-        
-        struct Platforms: Codable {
-            let platform: Platform
-            
-            struct Platform: Codable, Identifiable {
-                let id: Int
-                let name: String
-            }
-        } // End of struct
-
-        struct Genres: Codable, Identifiable {
-            let id: Int
-            let name: String
-        } // End of struct
-
-        struct Stores: Codable {
-            let store: Store
-            
-            struct Store: Codable, Identifiable {
-                let id: Int
-                let name: String
-            }
-        } // End of struct
-
-        struct ESRBRating: Codable, Identifiable {
-            let id: Int
-            let name: String
-        } // End of struct
+    
         
         // MARK: - Functions
         func displayBackgroundImage() -> String {
@@ -115,4 +88,32 @@ struct GameGeneralResponse: Codable {
         
     } // End of struct
     
+} // End of struct
+
+struct Platforms: Codable {
+    let platform: Platform
+} // End of struct
+
+struct Platform: Codable, Identifiable {
+    let id: Int
+    let name: String
+}
+
+struct Genres: Codable, Identifiable {
+    let id: Int
+    let name: String
+} // End of struct
+
+struct Stores: Codable {
+    let store: Store
+} // End of struct
+
+struct Store: Codable, Identifiable {
+    let id: Int
+    let name: String
+}
+
+struct ESRBRating: Codable, Identifiable {
+    let id: Int
+    let name: String
 } // End of struct

@@ -37,9 +37,6 @@ struct SearchView: View {
             if viewModel.isShowingDetail {
                 GameDetailView(game: viewModel.selectedGame!, viewModel: viewModel, isShowingDetail: $viewModel.isShowingDetail)
             }
-//            if viewModel.isLoading {
-//                LoadingView()
-//            }
         }
         .alert(item: $viewModel.foozleAlert) { foozleAlertItem in
             Alert(title: foozleAlertItem.title, message: foozleAlertItem.message, dismissButton: foozleAlertItem.dismissButton)

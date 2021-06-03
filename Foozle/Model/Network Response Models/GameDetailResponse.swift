@@ -13,16 +13,6 @@ struct GameDetailResponse: Codable {
     let descriptionRaw: String
     let website: String
     
-    struct Publisher: Codable {
-        let id: Int
-        let name: String
-    }
-    
-    struct Developer: Codable {
-        let id: Int
-        let name: String
-    }
-    
     func displayPublisherData() -> String {
         var publisherString = ""
         guard let gamePublishers = publishers, gamePublishers.count != 0 else {
@@ -52,3 +42,14 @@ struct GameDetailResponse: Codable {
     }
 
 }// End of class
+
+
+struct Publisher: Codable {
+    let id: Int
+    let name: String
+}
+
+struct Developer: Codable {
+    let id: Int
+    let name: String
+}
