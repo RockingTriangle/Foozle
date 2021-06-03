@@ -21,7 +21,7 @@ struct StoreLinks {
     static let epicGames    = Link(destination: URL(string: "https://epicgames.com")!)              { Image("epicGames").resizable() }
 
     
-    static func displayStoreLinks(_ stores: [GameGeneralResponse.GameResponse.Stores]?) -> [Link<Image>] {
+    static func displayStoreLinks(_ stores: [Stores]?) -> [Link<Image>] {
         
         var storesArray = [Link<Image>]()
         if let stores = stores {

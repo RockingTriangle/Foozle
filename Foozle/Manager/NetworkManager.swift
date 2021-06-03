@@ -17,7 +17,7 @@ final class NetworkManager {
     let baseURL = "https://api.rawg.io/api/"
     
     // MARK: - Functions
-    func getHighestRatedGames(endpoint: Endpoint, sorting: Sorting, searchTerm: String?, completed: @escaping (Result<[GameGeneralResponse.GameResponse], FoozleError>) -> Void) {
+    func getHighestRatedGames(endpoint: Endpoint, sorting: Sorting, searchTerm: String?, completed: @escaping (Result<[GameResponse], FoozleError>) -> Void) {
         
         var searchTerm = searchTerm ?? ""
         searchTerm = searchTerm.replacingOccurrences(of: " ", with: "%20")
@@ -99,6 +99,53 @@ final class NetworkManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let decodedResponse = try decoder.decode(GameDetailResponse.self, from: data)
+                completed(.success(decodedResponse))
+                print("decoded")
+            } catch {
+                completed(.failure(.invalidData))
+                print("could not decode")
+            }
+            
+        }.resume()
+        
+    } // end getGameData
+    
+    func getGameDataForCollectionView(endpoint: Endpoint, name: String, completed: @escaping (Result<CollectionViewGameData, FoozleError>) -> Void) {
+        
+        var slug = name
+        slug = slug.replacingOccurrences(of: " ", with: "-").lowercased()
+        slug = slug.replacingOccurrences(of: ":", with: "")
+        
+        let urlString = baseURL + endpoint.rawValue + "/" + slug + apiKey
+        
+        guard let url = URL(string: urlString) else {
+            completed(.failure(.invalidURL))
+            print("failed url")
+            return
+        }
+        print(url)
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            // TODO: - fix error to add to message
+            if let _ = error {
+                completed(.failure(.unableToComplete))
+                print("error")
+                return
+            }
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completed(.failure(.invalidResponse))
+                print("no/wrong response")
+                return
+            }
+            guard let data = data else {
+                completed(.failure(.invalidResponse))
+                print("no data")
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let decodedResponse = try decoder.decode(CollectionViewGameData.self, from: data)
                 completed(.success(decodedResponse))
                 print("decoded")
             } catch {

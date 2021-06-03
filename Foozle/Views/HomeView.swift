@@ -1,5 +1,5 @@
 //
-//  NewAndTrendingView.swift
+//  HomeView.swift
 //  Foozle
 //
 //  Created by Mike Conner on 5/25/21.
@@ -38,7 +38,14 @@ struct HomeView: View {
                         }
                     }
                     .navigationBarTitleDisplayMode(.inline)
-                    .navigationTitle(Text("New and Trending"))
+                    .navigationTitle(Text("Featured Games"))
+                    
+                    // TODO: - Playing around with .toolbar and ToolbarItem
+//                    .toolbar {
+//                        ToolbarItem(placement: .principal) {
+//                            Text("Featured Games")
+//                        }
+//                    }
                     .disabled(viewModel.isShowingDetail)
                 }
             }

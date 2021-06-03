@@ -1,13 +1,14 @@
 //
-//  GameDetailView.swift
+//  CollectionGameDetailView.swift
 //  Foozle
 //
-//  Created by Mike Conner on 5/25/21.
+//  Created by Mike Conner on 6/2/21.
 //
+
 
 import SwiftUI
 
-struct GameDetailView: View {
+struct CollectionGameDetailView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -19,7 +20,7 @@ struct GameDetailView: View {
         
     @State var game: GameResponse
     @ObservedObject var viewModel: FoozleViewModel
-    @Binding var isShowingDetail: Bool
+    @Binding var isShowingCollectionDetail: Bool
 
     @State private var opacity: Double = 0
         
@@ -78,7 +79,7 @@ struct GameDetailView: View {
                         }
                 Spacer()
                 Button {
-                        isShowingDetail = false
+                        isShowingCollectionDetail = false
                     } label: {
                         FoozleDismissButton()
                     }
@@ -268,8 +269,3 @@ struct GameDetailView: View {
     
 } // End of struct
 
-//struct GameDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GameDetailView(game: MockData.game, viewModel: FoozleViewModel(), isShowingDetail: .constant(true))
-//    }
-//} // End of struct
