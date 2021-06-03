@@ -121,7 +121,7 @@
 				13A82CD9265D6B8B00E56243 /* Model */,
 				13A82CE6265D6CA600E56243 /* Manager */,
 				13A82CDB265D6B9700E56243 /* Helper Views */,
-				13E6B9EB26656FF00062A061 /* View Models */,
+				13E6B9EB26656FF00062A061 /* View Model */,
 				13A82CDC265D6B9B00E56243 /* Views */,
 				13A82CD0265D6B7F00E56243 /* Preview Content */,
 			);
@@ -285,12 +285,12 @@
 			path = "Helper Models";
 			sourceTree = "<group>";
 		};
-		13E6B9EB26656FF00062A061 /* View Models */ = {
+		13E6B9EB26656FF00062A061 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
 				13E5D06B265DF82F00465409 /* FoozleViewModel.swift */,
 			);
-			path = "View Models";
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
