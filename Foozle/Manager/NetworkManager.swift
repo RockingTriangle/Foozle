@@ -5,7 +5,7 @@
 //  Created by Mike Conner on 5/25/21.
 //
 
-import UIKit
+import SwiftUI
 
 final class NetworkManager {
     
@@ -110,12 +110,8 @@ final class NetworkManager {
         
     } // end getGameData
     
-    func getGameDataForCollectionView(endpoint: Endpoint, name: String, completed: @escaping (Result<CollectionViewGameData, FoozleError>) -> Void) {
-        
-        var slug = name
-        slug = slug.replacingOccurrences(of: " ", with: "-").lowercased()
-        slug = slug.replacingOccurrences(of: ":", with: "")
-        
+    func getGameDataForCollectionView(endpoint: Endpoint, slug: String, completed: @escaping (Result<CollectionViewGameData, FoozleError>) -> Void) {
+                
         let urlString = baseURL + endpoint.rawValue + "/" + slug + apiKey
         
         guard let url = URL(string: urlString) else {
@@ -199,23 +195,128 @@ extension NetworkManager {
     
     enum Endpoint: String {
         case games = "games"
-        case developers = "developers"
         case genres = "genres"
         case platforms = "platforms"
-        case publishers = "publishers"
-        case stores = "stores"
     }
     
     enum Sorting: String {
+        case none = ""
         case name = "&ordering=name"
         case reverseName = "&ordering=-name"
         case released = "&ordering=released"
         case reverseReleased = "&ordering=-released"
-        case added = "&ordering=added"
-        case reverseAdded = "&ordering=-added"
         case rating = "&ordering=rating"
         case reverseRating = "&ordering=-rating"
         
+        var foozleDescription: String {
+            switch self {
+            case .none:
+                return "No sorting"
+            case .name:
+                return "Name - Ascending"
+            case .reverseName:
+                return "Name - Descending"
+            case .released:
+                return "Released - Ascending"
+            case .reverseReleased:
+                return "Released - Descending"
+            case .rating:
+                return "Rating - Ascending"
+            case .reverseRating:
+                return "Rating - Descending"
+            }
+        }
+    }
+    
+    enum Genres: String {
+        case all = ""
+        case action = "&genres=action"
+        case indie = "&genres=indie"
+        case adventure = "&genres=adventure"
+        case rpg = "&genres=role-playing-games-rpg"
+        case shooter = "&genres=shooter"
+        case casual = "&genres=casual"
+        case simulation = "&genres=simulation"
+        case puzzle = "&genres=puzzle"
+        case arcade = "&genres=arcade"
+        case platformer = "&genres=platformer"
+        case racing = "&genres=racing"
+        case massMulty = "&genres=massively-multiplayer"
+        case sports = "&genres=sports"
+        case fighting = "&genres=fighting"
+        case family = "&genres=family"
+        case boardGames = "&genres=board-games"
+        case eductional = "&genres=educational"
+        case card = "&genres=card"
+        
+        var foozleDescription: String {
+            switch self {
+            case .all:
+                return "All Genres"
+            case .action:
+                return "Action"
+            case .indie:
+                return "Indie"
+            case .adventure:
+                return "Adventure"
+            case .rpg:
+                return "Role Playing Games"
+            case .shooter:
+                return "Shooter"
+            case .casual:
+                return "Casual"
+            case .simulation:
+                return "Simulation"
+            case .puzzle:
+                return "Puzzle"
+            case .arcade:
+                return "Arcade"
+            case .platformer:
+                return "Platformer"
+            case .racing:
+                return "Racing"
+            case .massMulty:
+                return "Massive Multiplayer"
+            case .sports:
+                return "Sports"
+            case .fighting:
+                return "Fighting"
+            case .family:
+                return "Family"
+            case .boardGames:
+                return "Board Games"
+            case .eductional:
+                return "Educational"
+            case .card:
+                return "Card"
+            }
+        }
+    }
+    
+    enum Platforms: String {
+        case all = ""
+        case computer = "&platforms=4,5,6,52,41"
+        case playstation = "&platforms=5,18,16,15,27,19,17"
+        case xbox = "&platforms=1,186,14,80"
+        case nintendo = "&platforms=7,8,9,13,10,11,105,83,24,43,26,79,49"
+        case mobile = "&platforms=3,21"
+        
+        var foozleDescription: String {
+            switch self {
+            case .all:
+                return "All Platforms"
+            case .computer:
+                return "Computer"
+            case .playstation:
+                return "Playstation"
+            case .xbox:
+                return "Xbox"
+            case .nintendo:
+                return "Nintendo"
+            case .mobile:
+                return "Mobile"
+            }
+        }
     }
     
 } // End of extension

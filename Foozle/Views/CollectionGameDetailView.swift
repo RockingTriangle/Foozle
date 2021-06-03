@@ -9,14 +9,6 @@
 import SwiftUI
 
 struct CollectionGameDetailView: View {
-    
-    @Environment(\.managedObjectContext) private var viewContext
-    
-    @FetchRequest(entity: CollectionGame.entity(), sortDescriptors: [])
-    var gameCollection: FetchedResults<CollectionGame>
-    
-    @FetchRequest(entity: WishListGame.entity(), sortDescriptors: [])
-    var gameWishList: FetchedResults<WishListGame>
         
     @State var game: GameResponse
     @ObservedObject var viewModel: FoozleViewModel
@@ -33,50 +25,8 @@ struct CollectionGameDetailView: View {
             HStack {
                 Spacer()
                     .frame(width: 8)
-                FoozleCollectionButton(viewModel: viewModel)
-                        .onAppear{
-                            for selectedGame in gameCollection {
-                                if selectedGame.name == game.name {
-                                    game.isInCollection = true
-                                    viewModel.isInCollection = true
-                                    break
-                                } else {
-                                    game.isInCollection = false
-                                    viewModel.isInCollection = false
-                                }
-                            }
-                        }
-                        .onTapGesture {
-                            if game.isInCollection {
-                                CoreDataManager.shared.delete(game: game, from: gameCollection)
-                            } else {
-                                CoreDataManager.shared.addGameToCollection(from: viewModel)
-                            }
-                            game.isInCollection.toggle()
-                            viewModel.isInCollection?.toggle()
-                        }
-                FoozleWishListButton(viewModel: viewModel)
-                        .onAppear{
-                            for selectedGame in gameWishList {
-                                if selectedGame.name == game.name {
-                                    game.isOnWishList = true
-                                    viewModel.isOnWishList = true
-                                    break
-                                } else {
-                                    game.isOnWishList = false
-                                    viewModel.isOnWishList = false
-                                }
-                            }
-                        }
-                        .onTapGesture {
-                            if game.isOnWishList {
-                                CoreDataManager.shared.delete(game: game, from: gameWishList)
-                            } else {
-                                CoreDataManager.shared.addGameToWishList(from: viewModel)
-                            }
-                            game.isOnWishList.toggle()
-                            viewModel.isOnWishList?.toggle()
-                        }
+                FoozleCollectionButton(game: game, viewModel: viewModel)
+                FoozleWishListButton(game: game, viewModel: viewModel)
                 Spacer()
                 Button {
                         isShowingCollectionDetail = false

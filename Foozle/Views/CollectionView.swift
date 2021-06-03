@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct CollectionView: View {
-    
-    @Environment(\.managedObjectContext) private var viewContext
-    
+        
     @FetchRequest(entity: CollectionGame.entity(), sortDescriptors: [])
     var gameCollection: FetchedResults<CollectionGame>
     
@@ -45,7 +43,7 @@ struct CollectionView: View {
                                     FoozleCollectionCell(game: game as CollectionGame)
                                         .padding(2)
                                         .onTapGesture {
-                                            viewModel.collectionViewSlugName = game.name
+                                            viewModel.collectionViewSlugName = game.slug
                                             viewModel.getCollectionViewGameDetails(collection: true, wishList: false)
                                         }
                                 }
@@ -72,8 +70,8 @@ struct CollectionView: View {
                                     FoozleCollectionCell(game: game as WishListGame)
                                         .padding(2)
                                         .onTapGesture {
-                                            viewModel.collectionViewSlugName = game.name
-                                            viewModel.getCollectionViewGameDetails(collection: true, wishList: false)
+                                            viewModel.collectionViewSlugName = game.slug
+                                            viewModel.getCollectionViewGameDetails(collection: false, wishList: true)
                                         }
                                 }
                             }

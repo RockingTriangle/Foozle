@@ -28,7 +28,7 @@ extension WishListGame {
     @NSManaged public var released: String
     @NSManaged public var stores: String
     @NSManaged public var website: String
-
+    @NSManaged public var slug: String
 }
 
 extension WishListGame : Identifiable {
