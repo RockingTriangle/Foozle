@@ -17,7 +17,7 @@ final class NetworkManager {
     let baseURL = "https://api.rawg.io/api/"
     
     // MARK: - Functions
-    func getHighestRatedGames(endpoint: Endpoint, sorting: Sorting, searchTerm: String?, completed: @escaping (Result<[GameGeneralResponse.GameResponse], FoozleError>) -> Void) {
+    func getHighestRatedGames(endpoint: Endpoint, sorting: Sorting, searchTerm: String?, completed: @escaping (Result<[GameResponse], FoozleError>) -> Void) {
         
         var searchTerm = searchTerm ?? ""
         searchTerm = searchTerm.replacingOccurrences(of: " ", with: "%20")

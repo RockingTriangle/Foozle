@@ -17,7 +17,7 @@ struct GameDetailView: View {
     @FetchRequest(entity: WishListGame.entity(), sortDescriptors: [])
     var gameWishList: FetchedResults<WishListGame>
         
-    @State var game: GameGeneralResponse.GameResponse
+    @State var game: GameResponse
     @ObservedObject var viewModel: FoozleViewModel
     @Binding var isShowingDetail: Bool
 

@@ -9,10 +9,10 @@ import SwiftUI
 
 final class FoozleViewModel: ObservableObject {
     
-    @Published var gamesFromMainView: [GameGeneralResponse.GameResponse] = []
-    @Published var gamesFromSearch: [GameGeneralResponse.GameResponse] = []
+    @Published var gamesFromMainView: [GameResponse] = []
+    @Published var gamesFromSearch: [GameResponse] = []
 
-    @Published var selectedGame: GameGeneralResponse.GameResponse?
+    @Published var selectedGame: GameResponse?
     @Published var additionalGameDetail: GameDetailResponse?
     @Published var selectedGameBackgroundImage: Image?
     @Published var isInCollection: Bool?
@@ -119,7 +119,7 @@ final class FoozleViewModel: ObservableObject {
     }
     
     func convertGameData(game: CollectionViewGameData, collection: Bool, wishList: Bool) {
-        let collectionGame = GameGeneralResponse.GameResponse(id: 99, name: game.name, backgroundImage: game.backgroundImage, released: game.released, platforms: game.platforms, genres: game.genres, stores: game.stores, esrbRating: game.esrbRating, isInCollection: collection, isOnWishList: wishList)
+        let collectionGame = GameResponse(id: 99, name: game.name, backgroundImage: game.backgroundImage, released: game.released, platforms: game.platforms, genres: game.genres, stores: game.stores, esrbRating: game.esrbRating, isInCollection: collection, isOnWishList: wishList)
         
         selectedGame = collectionGame
         isInCollection = collection

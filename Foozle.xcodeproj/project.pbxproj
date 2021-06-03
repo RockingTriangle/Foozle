@@ -16,6 +16,7 @@
 		13800A622662D15100362B57 /* FoozleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13800A612662D15100362B57 /* FoozleCollectionCell.swift */; };
 		13800A642662D19A00362B57 /* FoozleCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13800A632662D19A00362B57 /* FoozleCollectionHeader.swift */; };
 		13800A672662D1F200362B57 /* FoozleCollectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13800A662662D1F200362B57 /* FoozleCollectionFooter.swift */; };
+		13886A3C266923660013E619 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13886A3B266923660013E619 /* NavigationBarModifier.swift */; };
 		13A015812666C07F00EB44D7 /* WishListGame+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0157D2666C07E00EB44D7 /* WishListGame+CoreDataClass.swift */; };
 		13A015822666C07F00EB44D7 /* WishListGame+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0157E2666C07F00EB44D7 /* WishListGame+CoreDataProperties.swift */; };
 		13A015832666C07F00EB44D7 /* CollectionGame+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0157F2666C07F00EB44D7 /* CollectionGame+CoreDataClass.swift */; };
@@ -57,6 +58,7 @@
 		13800A612662D15100362B57 /* FoozleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleCollectionCell.swift; sourceTree = "<group>"; };
 		13800A632662D19A00362B57 /* FoozleCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleCollectionHeader.swift; sourceTree = "<group>"; };
 		13800A662662D1F200362B57 /* FoozleCollectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleCollectionFooter.swift; sourceTree = "<group>"; };
+		13886A3B266923660013E619 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		13A0157D2666C07E00EB44D7 /* WishListGame+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishListGame+CoreDataClass.swift"; sourceTree = "<group>"; };
 		13A0157E2666C07F00EB44D7 /* WishListGame+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishListGame+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		13A0157F2666C07F00EB44D7 /* CollectionGame+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionGame+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -101,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13886A3A2669233C0013E619 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				13886A3B266923660013E619 /* NavigationBarModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
 		13A82CBE265D6B7E00E56243 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +164,7 @@
 		13A82CDA265D6B9200E56243 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				13886A3A2669233C0013E619 /* ViewModifiers */,
 				13A82CE7265D6CAE00E56243 /* Extensions */,
 			);
 			path = Utilities;
@@ -397,6 +408,7 @@
 				13E5D070265E036600465409 /* LoadingView.swift in Sources */,
 				13A82D0C265D736D00E56243 /* Foozle.xcdatamodeld in Sources */,
 				13E5D05E265DE3E100465409 /* NetworkManager.swift in Sources */,
+				13886A3C266923660013E619 /* NavigationBarModifier.swift in Sources */,
 				13A015822666C07F00EB44D7 /* WishListGame+CoreDataProperties.swift in Sources */,
 				13F887642660794600CB7D08 /* MockData.swift in Sources */,
 				13F88766266087D900CB7D08 /* GameDetailResponse.swift in Sources */,

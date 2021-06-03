@@ -71,6 +71,10 @@ struct CollectionView: View {
                                 ForEach(gameWishList) { game in
                                     FoozleCollectionCell(game: game as WishListGame)
                                         .padding(2)
+                                        .onTapGesture {
+                                            viewModel.collectionViewSlugName = game.name
+                                            viewModel.getCollectionViewGameDetails(collection: true, wishList: false)
+                                        }
                                 }
                             }
                         }
