@@ -9,21 +9,43 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
-    
-    @FetchRequest(entity: CollectionGame.entity(), sortDescriptors: [])
-    var gameCollection: FetchedResults<CollectionGame>
-    
-    @FetchRequest(entity: WishListGame.entity(), sortDescriptors: [])
-    var gameWishList: FetchedResults<WishListGame>
+    init(viewModel: FoozleViewModel, navigationTitle: String) {
+        let appearance = UINavigationBarAppearance()
+
+        appearance.titleTextAttributes = [
+            .font : UIFont.systemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor : UIColor(.primary)
+        ]
+        
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().standardAppearance = appearance
+        
+        UINavigationBar.appearance().tintColor = UIColor(.primary)
+        
+        self.viewModel = viewModel
+        self.navigationTitle = navigationTitle
+        
+    }
     
     @ObservedObject var viewModel: FoozleViewModel
+    var navigationTitle: String
     
-    var body: some View {
+    var body: some View {        
+        
         VStack(alignment: .center) {
             Group {
                 FoozleHeaderView()
                     .ignoresSafeArea()
+                    .overlay(Button {
+                        viewModel.isShowingSettings = true
+                    } label: {
+                        FoozleSettingsButton().padding(.trailing, 10)
+                    }, alignment: .topTrailing)
+                
+                SortAndFilterHeader(viewModel: viewModel)
+                Divider()
+                    .padding(0)
+                
                 NavigationView {
                     List() {
                         ForEach(viewModel.gamesFromMainView) { game in
@@ -37,21 +59,17 @@ struct HomeView: View {
                                 }
                         }
                     }
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationTitle(Text("Featured Games"))
-                    
-                    // TODO: - Playing around with .toolbar and ToolbarItem
-//                    .toolbar {
-//                        ToolbarItem(placement: .principal) {
-//                            Text("Featured Games")
-//                        }
-//                    }
+                    .navigationBarHidden(true)
                     .disabled(viewModel.isShowingDetail)
+                    .disabled(viewModel.isShowingSettings)
                 }
             }
             .blur(radius: viewModel.isShowingDetail ? 20 : 0)
+            .blur(radius: viewModel.isShowingSettings ? 20 : 0)
             if viewModel.isShowingDetail {
                 GameDetailView(game: viewModel.selectedGame!, viewModel: viewModel, isShowingDetail: $viewModel.isShowingDetail)
+            } else if viewModel.isLoading {
+                LoadingView()
             }
         }
         .onAppear {
@@ -66,11 +84,3 @@ struct HomeView: View {
     }
 }
 
-struct NewAndTrendingView_Previews: PreviewProvider {
-    
-    @ObservedObject var viewModel: FoozleViewModel
-
-    static var previews: some View {
-        HomeView(viewModel: FoozleViewModel())
-    }
-}

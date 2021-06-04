@@ -47,6 +47,7 @@ struct CoreDataManager {
         
         newGame.uniqueID = UUID()
         newGame.name = viewModel.selectedGame?.name ?? "no name"
+        newGame.slug = viewModel.selectedGame?.slug ?? "no-slug"
         newGame.backgroundImage = viewModel.selectedGame?.backgroundImage ?? "white"
         newGame.descripitionRaw = viewModel.additionalGameDetail?.descriptionRaw ?? "no description"
         newGame.developers = viewModel.additionalGameDetail?.displayDeveloperData() ?? "no developers"
@@ -73,6 +74,7 @@ struct CoreDataManager {
         
         newGame.uniqueID = UUID()
         newGame.name = viewModel.selectedGame?.name ?? "no name"
+        newGame.slug = viewModel.selectedGame?.slug ?? "noslug"
         newGame.backgroundImage = viewModel.selectedGame?.backgroundImage ?? "white"
         newGame.descripitionRaw = viewModel.additionalGameDetail?.descriptionRaw ?? "no description"
         newGame.developers = viewModel.additionalGameDetail?.displayDeveloperData() ?? "no developers"

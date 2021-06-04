@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct FoozleDismissButton: View {
+    
+    @ObservedObject var viewModel: FoozleViewModel
+    
     var body: some View {
         ZStack {
             Circle()
@@ -19,5 +22,12 @@ struct FoozleDismissButton: View {
                 .frame(width: 44, height: 44)
                 .foregroundColor(.black)
         }
+        .onTapGesture {
+            viewModel.isShowingDetail = false
+            viewModel.isShowingSettings = false
+            viewModel.isShowingCollectionDetail = false
+        }
     }
 }
+
+

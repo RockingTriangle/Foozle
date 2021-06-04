@@ -14,7 +14,7 @@ struct SearchBarView: View {
     @ObservedObject var viewModel: FoozleViewModel
 
     var body: some View {
-        HStack {            
+        HStack(alignment: .center) {            
             TextField("Search...", text: $text, onCommit: {
                 viewModel.searchText = text
                 viewModel.getGamesFromSearch()

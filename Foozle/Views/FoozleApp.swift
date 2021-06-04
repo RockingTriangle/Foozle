@@ -15,7 +15,7 @@ struct FoozleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            FoozleTabView()
+            FoozleTabView(tabIndex: 1)
                 .environment(\.managedObjectContext, coreDataManager.container.viewContext)
         }
         .onChange(of: scenePhase) { _ in

@@ -10,6 +10,7 @@
         <attribute name="platforms" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Platforms]"/>
         <attribute name="publishers" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Publisher]"/>
         <attribute name="released" optional="YES" attributeType="String"/>
+        <attribute name="slug" optional="YES" attributeType="String"/>
         <attribute name="stores" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Stores]"/>
         <attribute name="uniqueID" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="website" optional="YES" attributeType="String"/>
@@ -24,12 +25,13 @@
         <attribute name="platforms" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Platforms]"/>
         <attribute name="publishers" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Publisher]"/>
         <attribute name="released" optional="YES" attributeType="String"/>
+        <attribute name="slug" optional="YES" attributeType="String"/>
         <attribute name="stores" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Stores]"/>
         <attribute name="uniqueID" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="website" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="CollectionGame" positionX="-63" positionY="-18" width="128" height="209"/>
-        <element name="WishListGame" positionX="-54" positionY="99" width="128" height="209"/>
+        <element name="CollectionGame" positionX="-63" positionY="-18" width="128" height="224"/>
+        <element name="WishListGame" positionX="-54" positionY="99" width="128" height="224"/>
     </elements>
 </model>

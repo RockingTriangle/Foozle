@@ -37,6 +37,6 @@ struct FoozleRowCell: View {
 
 struct FoozleCell_Previews: PreviewProvider {
     static var previews: some View {
-        FoozleRowCell(game: GameResponse(id: 1, name: "test", backgroundImage: "test", released: "today", platforms: [], genres: [], stores: [], esrbRating: ESRBRating(id: 1, name: "mature")))
+        FoozleRowCell(game: GameResponse(id: 1, slug: "test", name: "test", backgroundImage: "test", released: "today", platforms: [], genres: [], stores: [], esrbRating: ESRBRating(id: 1, name: "mature")))
     }
 }

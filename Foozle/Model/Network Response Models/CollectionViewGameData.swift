@@ -11,6 +11,7 @@ struct CollectionViewGameData: Codable {
     
     let id: Int
     let name: String
+    let slug: String
     let backgroundImage: String?
     let released: String?
     let platforms: [Platforms]
