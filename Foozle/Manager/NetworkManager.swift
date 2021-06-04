@@ -17,7 +17,7 @@ final class NetworkManager {
     let baseURL = "https://api.rawg.io/api/"
     
     // MARK: - Functions
-    func getHighestRatedGames(endpoint: Endpoint, sorting: Sorting, searchTerm: String?, completed: @escaping (Result<[GameResponse], FoozleError>) -> Void) {
+    func getGames(endpoint: Endpoint, sorting: Sorting, genre: Genres, platform: Platforms, searchTerm: String?, completed: @escaping (Result<[GameResponse], FoozleError>) -> Void) {
         
         var searchTerm = searchTerm ?? ""
         searchTerm = searchTerm.replacingOccurrences(of: " ", with: "%20")
@@ -26,7 +26,7 @@ final class NetworkManager {
             searchTerm == "" ? "" : "&search_exact=true"
         }
         
-        let urlString = baseURL + endpoint.rawValue + apiKey + searchTerm + sorting.rawValue + preciseSearch
+        let urlString = baseURL + endpoint.rawValue + apiKey + searchTerm + sorting.rawValue + genre.rawValue + platform.rawValue + preciseSearch
         
         guard let url = URL(string: urlString) else {
             completed(.failure(.invalidURL))
@@ -65,9 +65,9 @@ final class NetworkManager {
             
         }.resume()
         
-    } // end getHighestRatedGames
+    } // end getGames function
     
-    func getGameData(endpoint: Endpoint, id: Int, completed: @escaping (Result<GameDetailResponse, FoozleError>) -> Void) {
+    func getGameDetails(endpoint: Endpoint, id: Int, completed: @escaping (Result<GameDetailResponse, FoozleError>) -> Void) {
         
         let urlString = baseURL + endpoint.rawValue + "/\(id)" + apiKey  
         
@@ -226,6 +226,25 @@ extension NetworkManager {
                 return "Rating - Descending"
             }
         }
+        
+        var titleDescription: String {
+            switch self {
+            case .none:
+                return "None"
+            case .name:
+                return "Name:  + \(Image("arrow.up"))"
+            case .reverseName:
+                return "Name:  + \(Image("arrow.down"))"
+            case .released:
+                return "Released:  + \(Image("arrow.up"))"
+            case .reverseReleased:
+                return "Released:  + \(Image("arrow.down"))"
+            case .rating:
+                return "Rating:  + \(Image("arrow.up"))"
+            case .reverseRating:
+                return "Rating:  + \(Image("arrow.down"))"
+            }
+        }
     }
     
     enum Genres: String {
@@ -291,6 +310,50 @@ extension NetworkManager {
                 return "Card"
             }
         }
+        
+        var titleDescription: String {
+            switch self {
+            case .all:
+                return "All"
+            case .action:
+                return "Action"
+            case .indie:
+                return "Indie"
+            case .adventure:
+                return "Adventure"
+            case .rpg:
+                return "RPG"
+            case .shooter:
+                return "Shooter"
+            case .casual:
+                return "Casual"
+            case .simulation:
+                return "Simulation"
+            case .puzzle:
+                return "Puzzle"
+            case .arcade:
+                return "Arcade"
+            case .platformer:
+                return "Platformer"
+            case .racing:
+                return "Racing"
+            case .massMulty:
+                return "Massive Multiplayer"
+            case .sports:
+                return "Sports"
+            case .fighting:
+                return "Fighting"
+            case .family:
+                return "Family"
+            case .boardGames:
+                return "Board Games"
+            case .eductional:
+                return "Educational"
+            case .card:
+                return "Cards"
+            }
+        }
+        
     }
     
     enum Platforms: String {
@@ -309,6 +372,23 @@ extension NetworkManager {
                 return "Computer"
             case .playstation:
                 return "Playstation"
+            case .xbox:
+                return "Xbox"
+            case .nintendo:
+                return "Nintendo"
+            case .mobile:
+                return "Mobile"
+            }
+        }
+        
+        var titleDescription: String {
+            switch self {
+            case .all:
+                return "All"
+            case .computer:
+                return "Computer"
+            case .playstation:
+                return "PlayStation"
             case .xbox:
                 return "Xbox"
             case .nintendo:

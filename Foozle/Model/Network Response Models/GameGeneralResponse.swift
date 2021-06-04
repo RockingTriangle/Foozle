@@ -20,7 +20,7 @@ struct GameResponse: Codable, Identifiable {
     let name: String
     let backgroundImage: String?
     let released: String?
-    let platforms: [Platforms]
+    let platforms: [Platforms]?
     let genres: [Genres]?
     let stores: [Stores]?
     let esrbRating: ESRBRating?
@@ -40,13 +40,17 @@ struct GameResponse: Codable, Identifiable {
     
     func displayPlatformData() -> String {
         var platformString = ""
-        for platform in platforms {
-            platformString += platform.platform.name
-            if platform.platform.id != platforms.last?.platform.id {
-                platformString += ", "
+        if let platforms = platforms {
+            for platform in platforms {
+                platformString += platform.platform.name
+                if platform.platform.id != platforms.last?.platform.id {
+                    platformString += ", "
+                }
             }
+            platformString = platformString.uppercased().replacingOccurrences(of: "PLAYSTATION", with: "PS")
+        } else {
+            platformString = "Not available"
         }
-        platformString = platformString.uppercased().replacingOccurrences(of: "PLAYSTATION", with: "PS")
         return platformString.uppercased()
     }
     

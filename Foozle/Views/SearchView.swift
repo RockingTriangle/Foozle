@@ -17,6 +17,11 @@ struct SearchView: View {
             Group {
                 FoozleHeaderView()
                     .ignoresSafeArea()
+                    .overlay(Button {
+                        viewModel.isShowingSettings = true
+                    } label: {
+                        FoozleSettingsButton().padding(.trailing, 10)
+                    }, alignment: .topTrailing)
                 if !viewModel.isShowingDetail {
                     SearchBarView(text: $searchText, viewModel: viewModel)
                 }                
@@ -31,6 +36,7 @@ struct SearchView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationBarHidden(true)
                     .disabled(viewModel.isShowingDetail)
+                    .disabled(viewModel.isShowingSettings)
                 }
             }
             .blur(radius: viewModel.isShowingDetail ? 20 : 0)

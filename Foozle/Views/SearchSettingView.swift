@@ -47,6 +47,8 @@ struct SearchSettingView: View {
                 viewModel.sortingSetting = sorting
                 viewModel.platformSetting = platform
                 viewModel.genreSetting = genre
+                viewModel.gamesFromMainView = []
+                viewModel.gamesFromSearch = []
             }
         }
         .overlay(Button {

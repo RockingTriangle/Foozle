@@ -37,7 +37,7 @@ final class FoozleViewModel: ObservableObject {
 
     
     func getGamesForMainView() {
-        NetworkManager.shared.getHighestRatedGames(endpoint: .games, sorting: .released, searchTerm: nil) { [self] result in
+        NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: nil) { [self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let games):
@@ -59,7 +59,7 @@ final class FoozleViewModel: ObservableObject {
     }
     
     func getGamesFromSearch() {
-        NetworkManager.shared.getHighestRatedGames(endpoint: .games, sorting: .released, searchTerm: searchText) { [self] result in
+        NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: searchText) { [self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let games):
@@ -82,7 +82,7 @@ final class FoozleViewModel: ObservableObject {
     }
     
     func getAdditionalGameDetails() {
-        NetworkManager.shared.getGameData(endpoint: .games, id: selectedGame!.id) { [self] result in
+        NetworkManager.shared.getGameDetails(endpoint: .games, id: selectedGame!.id) { [self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let gameDetail):

@@ -9,7 +9,26 @@ import SwiftUI
 
 struct HomeView: View {
     
+    init(viewModel: FoozleViewModel, navigationTitle: String) {
+        let appearance = UINavigationBarAppearance()
+
+        appearance.titleTextAttributes = [
+            .font : UIFont.systemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor : UIColor(.primary)
+        ]
+        
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().standardAppearance = appearance
+        
+        UINavigationBar.appearance().tintColor = UIColor(.primary)
+        
+        self.viewModel = viewModel
+        self.navigationTitle = navigationTitle
+        
+    }
+    
     @ObservedObject var viewModel: FoozleViewModel
+    var navigationTitle: String
     
     var body: some View {        
         
@@ -22,7 +41,7 @@ struct HomeView: View {
                     } label: {
                         FoozleSettingsButton().padding(.trailing, 10)
                     }, alignment: .topTrailing)
-                    .disabled(viewModel.isShowingSettings)
+                // TODO: - Try label
                 NavigationView {
                     List() {
                         ForEach(viewModel.gamesFromMainView) { game in
@@ -37,8 +56,9 @@ struct HomeView: View {
                         }
                     }
                     .navigationBarTitleDisplayMode(.inline)
-                    .navigationTitle(Text("Featured Games"))
+                    .navigationTitle(Text(getNavigationTitle()))
                     .disabled(viewModel.isShowingDetail)
+                    .disabled(viewModel.isShowingSettings)
                 }
             }
             .blur(radius: viewModel.isShowingDetail ? 20 : 0)
@@ -56,14 +76,15 @@ struct HomeView: View {
         .alert(item: $viewModel.foozleAlert) { foozleAlertItem in
             Alert(title: foozleAlertItem.title, message: foozleAlertItem.message, dismissButton: foozleAlertItem.dismissButton)
         }
-    }    
+    }
+    
+    func getNavigationTitle() -> String {
+        let sorting = viewModel.sortingSetting.titleDescription
+        let genre = viewModel.genreSetting.titleDescription
+        let platform = viewModel.platformSetting.titleDescription
+        
+        return "Platform: \(platform) | Genre: \(genre) | Sort: \(sorting)"
+    }
+    
 }
 
-struct NewAndTrendingView_Previews: PreviewProvider {
-    
-    @ObservedObject var viewModel: FoozleViewModel
-    
-    static var previews: some View {
-        HomeView(viewModel: FoozleViewModel())
-    }
-}

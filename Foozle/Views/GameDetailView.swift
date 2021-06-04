@@ -206,7 +206,6 @@ struct GameDetailView: View {
         .onAppear {
             viewModel.selectedGame = game
             viewModel.getAdditionalGameDetails()
-            UITabBar.appearance().isUserInteractionEnabled = false
         }
         .frame(width: UIScreen.screenWidth - 48, height: UIScreen.screenHeight * 0.80)
         .background(Color(.systemBackground))
