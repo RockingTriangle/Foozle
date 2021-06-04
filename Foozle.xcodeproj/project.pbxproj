@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1324C09E26616E7900288E98 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1324C09D26616E7900288E98 /* View+Ext.swift */; };
+		1331E2AA266A8E6400305FD0 /* SortAndFilterHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1331E2A9266A8E6400305FD0 /* SortAndFilterHeader.swift */; };
 		135137EC26685EF800CF6688 /* CollectionViewGameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135137EB26685EF800CF6688 /* CollectionViewGameData.swift */; };
 		135137EE2668668100CF6688 /* CollectionGameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135137ED2668668100CF6688 /* CollectionGameDetailView.swift */; };
 		13596E9D2664043200B693C4 /* FoozleWishListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13596E9C2664043200B693C4 /* FoozleWishListButton.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		1324C09D26616E7900288E98 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		1331E2A9266A8E6400305FD0 /* SortAndFilterHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAndFilterHeader.swift; sourceTree = "<group>"; };
 		135137EB26685EF800CF6688 /* CollectionViewGameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewGameData.swift; sourceTree = "<group>"; };
 		135137ED2668668100CF6688 /* CollectionGameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGameDetailView.swift; sourceTree = "<group>"; };
 		13596E9C2664043200B693C4 /* FoozleWishListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleWishListButton.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				13A82D1E265DC65B00E56243 /* FoozleHeaderView.swift */,
 				13800A632662D19A00362B57 /* FoozleCollectionHeader.swift */,
 				13800A662662D1F200362B57 /* FoozleCollectionFooter.swift */,
+				1331E2A9266A8E6400305FD0 /* SortAndFilterHeader.swift */,
 			);
 			path = "Helper Views";
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				1378DAF726696AC500ADC757 /* MenuStyle.swift in Sources */,
 				13E5D05C265DDB5200465409 /* GameDetailView.swift in Sources */,
 				13800A672662D1F200362B57 /* FoozleCollectionFooter.swift in Sources */,
+				1331E2AA266A8E6400305FD0 /* SortAndFilterHeader.swift in Sources */,
 				1378DAEC266947BC00ADC757 /* GenreMenu.swift in Sources */,
 				13E6B9E8266566C70062A061 /* CoreDataProtocol+Ext.swift in Sources */,
 				13596E9D2664043200B693C4 /* FoozleWishListButton.swift in Sources */,

@@ -28,11 +28,7 @@ struct CollectionGameDetailView: View {
                 FoozleCollectionButton(game: game, viewModel: viewModel)
                 FoozleWishListButton(game: game, viewModel: viewModel)
                 Spacer()
-                Button {
-                        isShowingCollectionDetail = false
-                    } label: {
-                        FoozleDismissButton()
-                    }
+                FoozleDismissButton(viewModel: viewModel)
                 Spacer()
                     .frame(width: 8)
             }

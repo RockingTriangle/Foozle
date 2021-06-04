@@ -41,7 +41,11 @@ struct HomeView: View {
                     } label: {
                         FoozleSettingsButton().padding(.trailing, 10)
                     }, alignment: .topTrailing)
-                // TODO: - Try label
+                
+                SortAndFilterHeader(viewModel: viewModel)
+                Divider()
+                    .padding(0)
+                
                 NavigationView {
                     List() {
                         ForEach(viewModel.gamesFromMainView) { game in
@@ -55,8 +59,7 @@ struct HomeView: View {
                                 }
                         }
                     }
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationTitle(Text(getNavigationTitle()))
+                    .navigationBarHidden(true)
                     .disabled(viewModel.isShowingDetail)
                     .disabled(viewModel.isShowingSettings)
                 }
@@ -65,6 +68,8 @@ struct HomeView: View {
             .blur(radius: viewModel.isShowingSettings ? 20 : 0)
             if viewModel.isShowingDetail {
                 GameDetailView(game: viewModel.selectedGame!, viewModel: viewModel, isShowingDetail: $viewModel.isShowingDetail)
+            } else if viewModel.isLoading {
+                LoadingView()
             }
         }
         .onAppear {
@@ -77,14 +82,5 @@ struct HomeView: View {
             Alert(title: foozleAlertItem.title, message: foozleAlertItem.message, dismissButton: foozleAlertItem.dismissButton)
         }
     }
-    
-    func getNavigationTitle() -> String {
-        let sorting = viewModel.sortingSetting.titleDescription
-        let genre = viewModel.genreSetting.titleDescription
-        let platform = viewModel.platformSetting.titleDescription
-        
-        return "Platform: \(platform) | Genre: \(genre) | Sort: \(sorting)"
-    }
-    
 }
 

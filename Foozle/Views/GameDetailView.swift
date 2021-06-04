@@ -27,11 +27,7 @@ struct GameDetailView: View {
                 FoozleCollectionButton(game: game, viewModel: viewModel)
                 FoozleWishListButton(game: game, viewModel: viewModel)
                 Spacer()
-                Button {
-                        isShowingDetail = false
-                    } label: {
-                        FoozleDismissButton()
-                    }
+                FoozleDismissButton(viewModel: viewModel)
                 Spacer()
                     .frame(width: 8)
             }
@@ -197,6 +193,10 @@ struct GameDetailView: View {
                 .font(Font.system(.caption2).lowercaseSmallCaps())
                 .foregroundColor(.gray)
                 .padding()
+            }
+            .blur(radius: viewModel.isLoading ? 20 : 0)
+            if viewModel.isLoading {
+                LoadingView()
             }
         }
         .opacity(opacity)

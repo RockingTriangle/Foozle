@@ -208,7 +208,7 @@ extension NetworkManager {
         case rating = "&ordering=rating"
         case reverseRating = "&ordering=-rating"
         
-        var foozleDescription: String {
+        var menuDescription: String {
             switch self {
             case .none:
                 return "No sorting"
@@ -232,17 +232,17 @@ extension NetworkManager {
             case .none:
                 return "None"
             case .name:
-                return "Name:  + \(Image("arrow.up"))"
+                return "Name: "
             case .reverseName:
-                return "Name:  + \(Image("arrow.down"))"
+                return "Name: "
             case .released:
-                return "Released:  + \(Image("arrow.up"))"
+                return "Released: "
             case .reverseReleased:
-                return "Released:  + \(Image("arrow.down"))"
+                return "Released: "
             case .rating:
-                return "Rating:  + \(Image("arrow.up"))"
+                return "Rating: "
             case .reverseRating:
-                return "Rating:  + \(Image("arrow.down"))"
+                return "Rating: "
             }
         }
     }
@@ -268,7 +268,7 @@ extension NetworkManager {
         case eductional = "&genres=educational"
         case card = "&genres=card"
         
-        var foozleDescription: String {
+        var menuDescription: String {
             switch self {
             case .all:
                 return "All Genres"
@@ -314,7 +314,7 @@ extension NetworkManager {
         var titleDescription: String {
             switch self {
             case .all:
-                return "All"
+                return "All Genres"
             case .action:
                 return "Action"
             case .indie:
@@ -364,7 +364,7 @@ extension NetworkManager {
         case nintendo = "&platforms=7,8,9,13,10,11,105,83,24,43,26,79,49"
         case mobile = "&platforms=3,21"
         
-        var foozleDescription: String {
+        var menuDescription: String {
             switch self {
             case .all:
                 return "All Platforms"
@@ -384,7 +384,7 @@ extension NetworkManager {
         var titleDescription: String {
             switch self {
             case .all:
-                return "All"
+                return "All Platforms"
             case .computer:
                 return "Computer"
             case .playstation:

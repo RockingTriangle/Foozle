@@ -23,21 +23,21 @@ struct SearchSettingView: View {
             Form {
                 Section(header: Text("Sorting Method")) {
                     HStack {
-                        Text(sorting.foozleDescription)
+                        Text(sorting.menuDescription)
                         Spacer()
                         SortingMenu(sorting: $sorting)
                     }
                 }
                 Section(header: Text("Platforms")) {
                     HStack {
-                        Text(platform.foozleDescription)
+                        Text(platform.menuDescription)
                         Spacer()
                         PlatformMenu(platforms: $platform)
                     }
                 }
                 Section(header: Text("Genres")) {
                     HStack {
-                        Text(genre.foozleDescription)
+                        Text(genre.menuDescription)
                         Spacer()
                         GenreMenu(genre: $genre)
                     }
@@ -48,14 +48,10 @@ struct SearchSettingView: View {
                 viewModel.platformSetting = platform
                 viewModel.genreSetting = genre
                 viewModel.gamesFromMainView = []
-                viewModel.gamesFromSearch = []
+//                viewModel.gamesFromSearch = []
             }
         }
-        .overlay(Button {
-            viewModel.isShowingSettings = false
-        } label: {
-            FoozleDismissButton().padding(.trailing, 4)
-        }, alignment: .topTrailing)
+        .overlay(FoozleDismissButton(viewModel: viewModel).padding(.trailing, 4), alignment: .topTrailing)
         .frame(width: UIScreen.screenWidth - 48, height: UIScreen.screenHeight * 0.80)
         .background(Color(.systemBackground))
         .cornerRadius(24)

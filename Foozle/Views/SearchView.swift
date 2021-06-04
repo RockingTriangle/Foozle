@@ -22,9 +22,13 @@ struct SearchView: View {
                     } label: {
                         FoozleSettingsButton().padding(.trailing, 10)
                     }, alignment: .topTrailing)
+                SortAndFilterHeader(viewModel: viewModel)
+                Spacer()
+                    .frame(height: 10)
                 if !viewModel.isShowingDetail {
                     SearchBarView(text: $searchText, viewModel: viewModel)
-                }                
+                }
+                Spacer().frame(height: 10)
                 NavigationView {
                     List(viewModel.gamesFromSearch) { game in
                         FoozleRowCell(game: game)
@@ -42,10 +46,17 @@ struct SearchView: View {
             .blur(radius: viewModel.isShowingDetail ? 20 : 0)
             if viewModel.isShowingDetail {
                 GameDetailView(game: viewModel.selectedGame!, viewModel: viewModel, isShowingDetail: $viewModel.isShowingDetail)
+            } else if viewModel.isLoading {
+                LoadingView()
             }
         }
         .alert(item: $viewModel.foozleAlert) { foozleAlertItem in
             Alert(title: foozleAlertItem.title, message: foozleAlertItem.message, dismissButton: foozleAlertItem.dismissButton)
+        }
+        .onAppear {
+            if viewModel.searchText != "" {
+                searchText = viewModel.searchText
+            }
         }
         .onDisappear {
             viewModel.isShowingDetail = false

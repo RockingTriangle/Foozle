@@ -37,8 +37,10 @@ final class FoozleViewModel: ObservableObject {
 
     
     func getGamesForMainView() {
+        isLoading = true
         NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: nil) { [self] result in
             DispatchQueue.main.async {
+                isLoading = false
                 switch result {
                 case .success(let games):
                     self.gamesFromMainView = games
@@ -59,8 +61,10 @@ final class FoozleViewModel: ObservableObject {
     }
     
     func getGamesFromSearch() {
+        isLoading = true
         NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: searchText) { [self] result in
             DispatchQueue.main.async {
+                isLoading = false
                 switch result {
                 case .success(let games):
                     self.gamesFromSearch = []
@@ -82,8 +86,10 @@ final class FoozleViewModel: ObservableObject {
     }
     
     func getAdditionalGameDetails() {
+        isLoading = true
         NetworkManager.shared.getGameDetails(endpoint: .games, id: selectedGame!.id) { [self] result in
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                isLoading = false
                 switch result {
                 case .success(let gameDetail):
                     additionalGameDetail = gameDetail
@@ -104,8 +110,10 @@ final class FoozleViewModel: ObservableObject {
     }
     
     func getCollectionViewGameDetails(collection: Bool, wishList: Bool) {
+        isLoading = true
         NetworkManager.shared.getGameDataForCollectionView(endpoint: .games, slug: collectionViewSlugName) { [self] result in
             DispatchQueue.main.async {
+                isLoading = false
                 switch result {
                 case .success(let gameDetail):
                     convertGameData(game: gameDetail, collection: collection, wishList: wishList)
