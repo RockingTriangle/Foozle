@@ -21,3 +21,5 @@ struct FoozleSettingsButton: View {
         }
     }
 }
+
+// TODO: - change to green checkmark if change to settings happened...

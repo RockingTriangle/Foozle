@@ -20,8 +20,16 @@ struct SortingMenu: View {
                 Button("Name -  Descending") { self.sorting = .reverseName }
                 Button("Released - Ascending") { self.sorting = .released }
                 Button("Released - Descending") { self.sorting = .reverseReleased }
-                Button("Rating - Ascending") { self.sorting = .rating }
-                Button("Rating - Descending") { self.sorting = .reverseRating }
+                Menu("Rating") {
+                    Menu("RAWG Rating") {
+                        Button("Rating - Ascending") { self.sorting = .rating }
+                        Button("Rating - Descending") { self.sorting = .reverseRating }
+                    }
+                    Menu("Metacritic Rating") {
+                        Button("Rating - Ascending") { self.sorting = .metaRating }
+                        Button("Rating - Descending") { self.sorting = .reverseMetaRating }
+                    }
+                }
             }
             .menuStyle(MyMenuStyle())
         }

@@ -17,7 +17,7 @@ final class NetworkManager {
     let baseURL = "https://api.rawg.io/api/"
     
     // MARK: - Functions
-    func getGames(endpoint: Endpoint, sorting: Sorting, genre: Genres, platform: Platforms, searchTerm: String?, completed: @escaping (Result<[GameResponse], FoozleError>) -> Void) {
+    func getGames(endpoint: Endpoint, sorting: Sorting, genre: Genres, platform: Platforms, searchTerm: String?, dateRange: String, completed: @escaping (Result<[GameResponse], FoozleError>) -> Void) {
         
         var searchTerm = searchTerm ?? ""
         searchTerm = searchTerm.replacingOccurrences(of: " ", with: "%20")
@@ -26,7 +26,7 @@ final class NetworkManager {
             searchTerm == "" ? "" : "&search_exact=true"
         }
         
-        let urlString = baseURL + endpoint.rawValue + apiKey + searchTerm + sorting.rawValue + genre.rawValue + platform.rawValue + preciseSearch
+        let urlString = baseURL + endpoint.rawValue + apiKey + searchTerm + dateRange + sorting.rawValue + genre.rawValue + platform.rawValue + preciseSearch
         
         guard let url = URL(string: urlString) else {
             completed(.failure(.invalidURL))
@@ -207,6 +207,8 @@ extension NetworkManager {
         case reverseReleased = "&ordering=-released"
         case rating = "&ordering=rating"
         case reverseRating = "&ordering=-rating"
+        case metaRating = "&ordering=metacritic"
+        case reverseMetaRating = "&ordering=-metacritic"
         
         var menuDescription: String {
             switch self {
@@ -224,6 +226,10 @@ extension NetworkManager {
                 return "Rating - Ascending"
             case .reverseRating:
                 return "Rating - Descending"
+            case .metaRating:
+                return "Metacritic - Ascending"
+            case .reverseMetaRating:
+                return "Metacritic - Descending"
             }
         }
         
@@ -243,6 +249,10 @@ extension NetworkManager {
                 return "Rating: "
             case .reverseRating:
                 return "Rating: "
+            case .metaRating:
+                return "Metacritic: "
+            case .reverseMetaRating:
+                return "Metacritic: "
             }
         }
     }
@@ -400,3 +410,4 @@ extension NetworkManager {
     }
     
 } // End of extension
+

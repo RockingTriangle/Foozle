@@ -12,36 +12,44 @@ struct SortAndFilterHeader: View {
     @ObservedObject var viewModel: FoozleViewModel
     
     var body: some View {
-        HStack {
-            Spacer()
-            VStack {
-                Text("Platroms").bold()
-                Text(viewModel.platformSetting.titleDescription)
-            }
-            Spacer()
-            VStack {
-                Text("Genres").bold()
-                Text(viewModel.genreSetting.titleDescription)
-            }
-            Spacer()
-            VStack {
-                Text("Sorting").bold()
-                HStack {
-                    Text(viewModel.sortingSetting.titleDescription)
-                    if  viewModel.sortingSetting == .none {
-                        Text("🚫")
-                    } else if (viewModel.sortingSetting == .reverseName) ||
-                              (viewModel.sortingSetting == .reverseRating) ||
-                              (viewModel.sortingSetting == .reverseReleased) {
-                        Image(systemName: "arrow.down")
-                    } else {
-                        Image(systemName: "arrow.up")
+        VStack {
+            HStack {
+                Spacer()
+                VStack {
+                    Text("Platforms").bold()
+                    Text(viewModel.platformSetting.titleDescription)
+                }
+                Spacer()
+                VStack {
+                    Text("Genres").bold()
+                    Text(viewModel.genreSetting.titleDescription)
+                }
+                Spacer()
+                VStack {
+                    Text("Sorting").bold()
+                    HStack {
+                        Text(viewModel.sortingSetting.titleDescription)
+                        if  viewModel.sortingSetting == .none {
+                            Text("🚫")
+                        } else if (viewModel.sortingSetting == .reverseName) ||
+                                    (viewModel.sortingSetting == .reverseRating) ||
+                                    (viewModel.sortingSetting == .reverseReleased) ||
+                                    (viewModel.sortingSetting == .reverseMetaRating) {
+                            Image(systemName: "arrow.down")
+                        } else {
+                            Image(systemName: "arrow.up")
+                        }
                     }
                 }
+                Spacer()
             }
-            Spacer()
+            .multilineTextAlignment(.center)
+            if viewModel.dateRange == "" {
+                Text("Date Range  -  All dates")
+            } else {
+                Text("Date range  -  From:\(viewModel.startingDate) - To:\(viewModel.endingDate)")
+            }
         }
-        .multilineTextAlignment(.center)
     }
 }
 

@@ -14,6 +14,8 @@ struct SearchSettingView: View {
     @State var sorting: NetworkManager.Sorting
     @State var platform: NetworkManager.Platforms
     @State var genre: NetworkManager.Genres
+    @State var startingDate = Date()
+    @State var endingDate = Date()
     
     var body: some View {
         VStack {
@@ -42,25 +44,42 @@ struct SearchSettingView: View {
                         GenreMenu(genre: $genre)
                     }
                 }
+                Section(header: Text("Date Range")) {
+                    DatePicker("Starting Date",
+                               selection: self.$startingDate,
+                               displayedComponents: .date)
+                    DatePicker("Ending Date",
+                               selection: self.$endingDate,
+                               displayedComponents: .date)
+                }
             }
-            .onDisappear {
-                viewModel.sortingSetting = sorting
-                viewModel.platformSetting = platform
-                viewModel.genreSetting = genre
-                viewModel.gamesFromMainView = []
-//                viewModel.gamesFromSearch = []
+        }
+        .onChange(of: startingDate, perform: { value in
+            if startingDate > endingDate {
+                print("noooo")
             }
+        })
+        .onDisappear {
+            viewModel.sortingSetting = sorting
+            viewModel.platformSetting = platform
+            viewModel.genreSetting = genre
+            viewModel.gamesFromMainView = []
+            convertDatesAndSaveToViewModel()
         }
         .overlay(FoozleDismissButton(viewModel: viewModel).padding(.trailing, 4), alignment: .topTrailing)
         .frame(width: UIScreen.screenWidth - 48, height: UIScreen.screenHeight * 0.80)
         .background(Color(.systemBackground))
         .cornerRadius(24)
         .shadow(radius: 40)
+        
+    }
+    func convertDatesAndSaveToViewModel() {
+        viewModel.startingDate = startingDate.formatToString()
+        viewModel.endingDate = endingDate.formatToString()
     }
 }
-
-struct SearchSettingView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchSettingView(viewModel: FoozleViewModel(), sorting: .none, platform: .all, genre: .all)
+    struct SearchSettingView_Previews: PreviewProvider {
+        static var previews: some View {
+            SearchSettingView(viewModel: FoozleViewModel(), sorting: .none, platform: .all, genre: .all)
+        }
     }
-}

@@ -28,6 +28,15 @@ final class FoozleViewModel: ObservableObject {
     @Published var sortingSetting: NetworkManager.Sorting = .none
     @Published var platformSetting: NetworkManager.Platforms = .all
     @Published var genreSetting: NetworkManager.Genres = .all
+    @Published var startingDate: String = ""
+    @Published var endingDate: String = Date().formatToString()
+    
+    var dateRange: String {
+        if startingDate == "" {
+            return ""
+        }
+        return "&\(startingDate),\(endingDate)"
+    }
     
     @Published var foozleAlert: FoozleAlertItem?
 
@@ -38,7 +47,7 @@ final class FoozleViewModel: ObservableObject {
     
     func getGamesForMainView() {
         isLoading = true
-        NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: nil) { [self] result in
+        NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: nil, dateRange: dateRange) { [self] result in
             DispatchQueue.main.async {
                 isLoading = false
                 switch result {
@@ -62,7 +71,7 @@ final class FoozleViewModel: ObservableObject {
     
     func getGamesFromSearch() {
         isLoading = true
-        NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: searchText) { [self] result in
+        NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: searchText, dateRange: dateRange) { [self] result in
             DispatchQueue.main.async {
                 isLoading = false
                 switch result {
