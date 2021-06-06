@@ -15,9 +15,9 @@ struct FoozleTabView: View {
     @State var tabIndex: Int
     
     var body: some View {
-        if viewModel.isShowingSettings {
-            SearchSettingView(viewModel: viewModel, sorting: viewModel.sortingSetting, platform: viewModel.platformSetting, genre: viewModel.genreSetting)
-        } else {
+//        if viewModel.isShowingSettings {
+//            SearchSettingView(viewModel: viewModel, sorting: viewModel.sortingSetting, platform: viewModel.platformSetting, genre: viewModel.genreSetting)
+//        } else {
             TabView(selection: $tabIndex) {
                 HomeView(viewModel: viewModel, navigationTitle: "")
                     .tabItem {
@@ -43,7 +43,7 @@ struct FoozleTabView: View {
             }
             .accentColor(.primary)
         }
-    }
+//    }
 }
 
 struct FoozleTabView_Previews: PreviewProvider {

@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct GenreMenu: View {
+    
+    @ObservedObject var viewModel: FoozleViewModel
     @Binding var genre: NetworkManager.Genres
+    
+    @State var frameHeight = 0
+    @State var opacity = 0.0
     
     var body: some View {
         HStack {
             Spacer()
-            Menu("Select") {
+            Menu("Genres") {
                 Group {
                     Button("All") { self.genre = .all }
                     Button("Action") { self.genre = .action }
@@ -38,11 +43,24 @@ struct GenreMenu: View {
             .menuStyle(MyMenuStyle())
         }
         .frame(width: 120)
+        .frame(height: CGFloat(frameHeight))
+        .opacity(opacity)
+        .onAppear {
+            withAnimation(.linear(duration: 0.3)) {
+                frameHeight = 40
+            }
+            withAnimation(.easeIn(duration: 0.3).delay(0.3)) {
+                opacity = 1
+            }
+            viewModel.isShowingCalendarSettings = false
+            viewModel.isShowingSortSettings = false
+            viewModel.isShowingPlatformSettings = false
+        }
     }
 }
 
 struct GenreMenu_Previews: PreviewProvider {
     static var previews: some View {
-        GenreMenu(genre: .constant(.all))
+        GenreMenu(viewModel: FoozleViewModel(), genre: .constant(.all))
     }
 }

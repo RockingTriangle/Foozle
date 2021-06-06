@@ -9,40 +9,29 @@ import SwiftUI
 
 struct HomeView: View {
     
-    init(viewModel: FoozleViewModel, navigationTitle: String) {
-        let appearance = UINavigationBarAppearance()
-
-        appearance.titleTextAttributes = [
-            .font : UIFont.systemFont(ofSize: 16),
-            NSAttributedString.Key.foregroundColor : UIColor(.primary)
-        ]
-        
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().standardAppearance = appearance
-        
-        UINavigationBar.appearance().tintColor = UIColor(.primary)
-        
-        self.viewModel = viewModel
-        self.navigationTitle = navigationTitle
-        
-    }
-    
     @ObservedObject var viewModel: FoozleViewModel
     var navigationTitle: String
     
-    var body: some View {        
-        
+    var opacity: Double = 0
+    
+    var body: some View {
         VStack(alignment: .center) {
             Group {
                 FoozleHeaderView()
                     .ignoresSafeArea()
-                    .overlay(Button {
-                        viewModel.isShowingSettings = true
-                    } label: {
-                        FoozleSettingsButton().padding(.trailing, 10)
-                    }, alignment: .topTrailing)
-                
                 SortAndFilterHeader(viewModel: viewModel)
+                if viewModel.isShowingSortSettings {
+                    SortingMenu(viewModel: viewModel, sorting: $viewModel.sortingSetting)
+                }
+                if viewModel.isShowingPlatformSettings {
+                    PlatformMenu(viewModel: viewModel, platforms: $viewModel.platformSetting)
+                }
+                if viewModel.isShowingGenreSettings {
+                    GenreMenu(viewModel: viewModel, genre: $viewModel.genreSetting)
+                }
+                if viewModel.isShowingCalendarSettings {
+                    CalendarMenu(viewModel: viewModel, startingDate: $viewModel.startingDate, endingDate: $viewModel.endingDate)
+                }
                 Divider()
                     .padding(0)
                 

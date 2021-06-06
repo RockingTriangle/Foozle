@@ -23,19 +23,30 @@ final class FoozleViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var isShowingDetail = false
     @Published var isShowingCollectionDetail = false
+    @Published var isShowingSortSettings = false
+    @Published var isShowingPlatformSettings = false
+    @Published var isShowingGenreSettings = false
+    @Published var isShowingCalendarSettings = false
+    
     @Published var isShowingSettings = false
     
     @Published var sortingSetting: NetworkManager.Sorting = .none
     @Published var platformSetting: NetworkManager.Platforms = .all
     @Published var genreSetting: NetworkManager.Genres = .all
-    @Published var startingDate: String = ""
-    @Published var endingDate: String = Date().formatToString()
     
-    var dateRange: String {
-        if startingDate == "" {
-            return ""
+    @Published var startingDate: Date = Date() {
+        didSet {
+            if startingDate > endingDate {
+                startingDate = endingDate
+            }
         }
-        return "&\(startingDate),\(endingDate)"
+    }
+    @Published var endingDate: Date = Date() {
+        didSet {
+            if startingDate > endingDate {
+                endingDate = startingDate
+            }
+        }
     }
     
     @Published var foozleAlert: FoozleAlertItem?
@@ -43,11 +54,19 @@ final class FoozleViewModel: ObservableObject {
     @Published var searchText: String = ""
     
     @Published var refresh: Bool = true
-
+    
+    func getDateRange() -> String {
+        let startingDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: startingDate)
+        let endingDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: endingDate)
+        if startingDateComponents == endingDateComponents {
+            return ""
+        }
+        return "&\(startingDate.formatToSearch()),\(endingDate.formatToSearch())"
+    }
     
     func getGamesForMainView() {
         isLoading = true
-        NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: nil, dateRange: dateRange) { [self] result in
+        NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: nil, dateRange: getDateRange()) { [self] result in
             DispatchQueue.main.async {
                 isLoading = false
                 switch result {
@@ -71,7 +90,7 @@ final class FoozleViewModel: ObservableObject {
     
     func getGamesFromSearch() {
         isLoading = true
-        NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: searchText, dateRange: dateRange) { [self] result in
+        NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: searchText, dateRange: getDateRange()) { [self] result in
             DispatchQueue.main.async {
                 isLoading = false
                 switch result {

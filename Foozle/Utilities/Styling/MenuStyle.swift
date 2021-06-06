@@ -14,10 +14,8 @@ struct MyMenuStyle: MenuStyle {
             .padding(.horizontal, 10)
             .frame(width: 120)
             .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color(.secondarySystemFill))
-//                    .frame(width: 100)
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color(.tertiarySystemFill))
             )
-            .menuStyle(BorderlessButtonMenuStyle())
     }
 }

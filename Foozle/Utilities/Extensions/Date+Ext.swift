@@ -8,9 +8,16 @@
 import SwiftUI
 
 extension Date {
-    func formatToString() -> String {
+    func formatToSearch() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
+        formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: self)
     }
+    
+    func formatToDisplay() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+        return formatter.string(from: self)
+    }
+    
 }

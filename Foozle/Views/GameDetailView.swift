@@ -24,10 +24,10 @@ struct GameDetailView: View {
             HStack {
                 Spacer()
                     .frame(width: 8)
-                FoozleCollectionButton(game: game, viewModel: viewModel)
-                FoozleWishListButton(game: game, viewModel: viewModel)
+                CollectionButton(game: game, viewModel: viewModel)
+                WishListButton(game: game, viewModel: viewModel)
                 Spacer()
-                FoozleDismissButton(viewModel: viewModel)
+                DismissButton(viewModel: viewModel)
                 Spacer()
                     .frame(width: 8)
             }
@@ -206,6 +206,10 @@ struct GameDetailView: View {
         .onAppear {
             viewModel.selectedGame = game
             viewModel.getAdditionalGameDetails()
+            viewModel.isShowingSortSettings = false
+            viewModel.isShowingPlatformSettings = false
+            viewModel.isShowingGenreSettings = false
+            viewModel.isShowingCalendarSettings = false
         }
         .frame(width: UIScreen.screenWidth - 48, height: UIScreen.screenHeight * 0.80)
         .background(Color(.systemBackground))

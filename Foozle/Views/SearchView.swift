@@ -20,7 +20,7 @@ struct SearchView: View {
                     .overlay(Button {
                         viewModel.isShowingSettings = true
                     } label: {
-                        FoozleSettingsButton().padding(.trailing, 10)
+                        SettingsButton().padding(.trailing, 10)
                     }, alignment: .topTrailing)
                 SortAndFilterHeader(viewModel: viewModel)
                 Spacer()
