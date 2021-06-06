@@ -30,26 +30,27 @@ final class FoozleViewModel: ObservableObject {
     
     @Published var isShowingSettings = false
     
-    @Published var sortingSetting: NetworkManager.Sorting = .none
+    @Published var sortingSetting: NetworkManager.Sorting = .reverseMetaRating
     @Published var platformSetting: NetworkManager.Platforms = .all
     @Published var genreSetting: NetworkManager.Genres = .all
     
-    @Published var startingDate: Date = Date() {
+    @Published var startingDate: Date = Date().addingTimeInterval(Date().timeIntervalSinceNow - Date().timeIntervalSince1970) {
         didSet {
-            if startingDate > endingDate {
-                startingDate = endingDate
+            if startingDate == Date() || startingDate >= endingDate {
+                startingDate = endingDate.addingTimeInterval(-86400)
             }
         }
     }
     @Published var endingDate: Date = Date() {
         didSet {
-            if startingDate > endingDate {
-                endingDate = startingDate
+            if startingDate >= endingDate {
+                endingDate = startingDate.addingTimeInterval(86400)
             }
         }
     }
+    @Published var searchRangeOfDates = false
     
-    @Published var foozleAlert: FoozleAlertItem?
+    @Published var foozleAlert: AlertItem?
 
     @Published var searchText: String = ""
     
@@ -58,10 +59,10 @@ final class FoozleViewModel: ObservableObject {
     func getDateRange() -> String {
         let startingDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: startingDate)
         let endingDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: endingDate)
-        if startingDateComponents == endingDateComponents {
+        if startingDateComponents == endingDateComponents || !searchRangeOfDates {
             return ""
         }
-        return "&\(startingDate.formatToSearch()),\(endingDate.formatToSearch())"
+        return "&dates=\(startingDate.formatToSearch()),\(endingDate.formatToSearch())"
     }
     
     func getGamesForMainView() {
@@ -75,13 +76,13 @@ final class FoozleViewModel: ObservableObject {
                 case .failure(let error):
                     switch error {
                     case .invalidData:
-                        foozleAlert = FoozleAlertContext.invalidData
+                        foozleAlert = AlertContext.invalidData
                     case .invalidResponse:
-                        foozleAlert = FoozleAlertContext.invalidResponse
+                        foozleAlert = AlertContext.invalidResponse
                     case .invalidURL:
-                        foozleAlert = FoozleAlertContext.invalidURL
+                        foozleAlert = AlertContext.invalidURL
                     case .unableToComplete:
-                        foozleAlert = FoozleAlertContext.unableToComplete
+                        foozleAlert = AlertContext.unableToComplete
                     }
                 }
             }
@@ -100,13 +101,13 @@ final class FoozleViewModel: ObservableObject {
                 case .failure(let error):
                     switch error {
                     case .invalidData:
-                        foozleAlert = FoozleAlertContext.invalidData
+                        foozleAlert = AlertContext.invalidData
                     case .invalidResponse:
-                        foozleAlert = FoozleAlertContext.invalidResponse
+                        foozleAlert = AlertContext.invalidResponse
                     case .invalidURL:
-                        foozleAlert = FoozleAlertContext.invalidURL
+                        foozleAlert = AlertContext.invalidURL
                     case .unableToComplete:
-                        foozleAlert = FoozleAlertContext.unableToComplete
+                        foozleAlert = AlertContext.unableToComplete
                     }
                 }
             }
@@ -124,13 +125,13 @@ final class FoozleViewModel: ObservableObject {
                 case .failure(let error):
                     switch error {
                     case .invalidData:
-                        foozleAlert = FoozleAlertContext.invalidData
+                        foozleAlert = AlertContext.invalidData
                     case .invalidResponse:
-                        foozleAlert = FoozleAlertContext.invalidResponse
+                        foozleAlert = AlertContext.invalidResponse
                     case .invalidURL:
-                        foozleAlert = FoozleAlertContext.invalidURL
+                        foozleAlert = AlertContext.invalidURL
                     case .unableToComplete:
-                        foozleAlert = FoozleAlertContext.unableToComplete
+                        foozleAlert = AlertContext.unableToComplete
                     }
                 }
             }
@@ -148,13 +149,13 @@ final class FoozleViewModel: ObservableObject {
                 case .failure(let error):
                     switch error {
                     case .invalidData:
-                        foozleAlert = FoozleAlertContext.invalidData
+                        foozleAlert = AlertContext.invalidData
                     case .invalidResponse:
-                        foozleAlert = FoozleAlertContext.invalidResponse
+                        foozleAlert = AlertContext.invalidResponse
                     case .invalidURL:
-                        foozleAlert = FoozleAlertContext.invalidURL
+                        foozleAlert = AlertContext.invalidURL
                     case .unableToComplete:
-                        foozleAlert = FoozleAlertContext.unableToComplete
+                        foozleAlert = AlertContext.unableToComplete
                     }
                 }
             }

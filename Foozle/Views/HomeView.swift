@@ -30,7 +30,7 @@ struct HomeView: View {
                     GenreMenu(viewModel: viewModel, genre: $viewModel.genreSetting)
                 }
                 if viewModel.isShowingCalendarSettings {
-                    CalendarMenu(viewModel: viewModel, startingDate: $viewModel.startingDate, endingDate: $viewModel.endingDate)
+                    CalendarMenu(viewModel: viewModel, startingDate: $viewModel.startingDate, endingDate: $viewModel.endingDate, searchRange: $viewModel.searchRangeOfDates)
                 }
                 Divider()
                     .padding(0)

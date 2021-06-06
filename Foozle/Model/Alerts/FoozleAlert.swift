@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FoozleAlertItem: Identifiable {
+struct AlertItem: Identifiable {
     let id = UUID()
     let title: Text
     let message: Text
@@ -15,23 +15,27 @@ struct FoozleAlertItem: Identifiable {
 
 } // End of struct
 
-struct FoozleAlertContext {
+struct AlertContext {
     
     //MARK: - NETWORK ALERTS
-    static let invalidData = FoozleAlertItem(title: Text("Server Error"),
-                                                message: Text("The data received from the server was invalid. Please contact support."),
+    static let invalidData = AlertItem(title: Text("Hmmm..."),
+                                                message: Text("We're sorry but the data received from the server was invalid. Please contact the developer with the request details to investigate why this occurred."),
                                                 dismissButton: .default(Text("OK")))
     
-    static let invalidResponse = FoozleAlertItem(title: Text("Server Error"),
-                                                message: Text("Invalid response from server. Please try again later or contact support."),
+    static let invalidResponse = AlertItem(title: Text("Something isn't right..."),
+                                                message: Text("We were unable to connect to the RAWG database at this time. Please try again later."),
                                                 dismissButton: .default(Text("OK")))
-    static let invalidURL = FoozleAlertItem(title: Text("Server Error"),
-                                                message: Text("There was an issue connecting to the server. If this persists, please contact support."),
+    static let invalidURL = AlertItem(title: Text("That's not good..."),
+                                                message: Text("We were unable to make your request. Please try again later."),
                                                 dismissButton: .default(Text("OK")))
     
-    static let unableToComplete = FoozleAlertItem(title: Text("Server Error"),
-                                                message: Text("Unable to complete your request at this time. Please check your internet connection."),
+    static let unableToComplete = AlertItem(title: Text("That's strange..."),
+                                                message: Text("We were unable to complete your request. Please check your wireless connectivity and try again."),
                                                 dismissButton: .default(Text("OK")))
+    
+    static let noResultsFromSearch = AlertItem(title: Text("Bummer..."),
+                                                     message: Text("There were no results for your search parameters. Please make some changes and try again."),
+                                                     dismissButton: .default(Text("OK")))
     
 } // End of struct
 

@@ -16,21 +16,31 @@ struct CalendarMenu: View {
     
     @State var frameHeight = 0
     @State var opacity = 0.0
+    @Binding var searchRange: Bool
     
     var body: some View {
         HStack {
-            DatePicker("Start:",
-                       selection: $startingDate,
-                       in: ...endingDate,
-                       displayedComponents: .date)
+            Toggle("", isOn: $searchRange)
+                .position(CGPoint(x: 20, y: 20))
             
             Spacer()
-                .frame(width: 50)
-            
-            DatePicker("End:",
-                   selection: $endingDate,
-                   in: startingDate...,
-                   displayedComponents: .date)
+            Group {
+                DatePicker("Start:",
+                           selection: $startingDate,
+                           in: ...endingDate,
+                           displayedComponents: .date)
+                    .labelsHidden()
+                
+                Text("-")
+                    .padding(.horizontal, 8)
+                
+                DatePicker("End:",
+                           selection: $endingDate,
+                           in: startingDate...,
+                           displayedComponents: .date)
+                    .labelsHidden()
+            }
+            .disabled(!searchRange)
         }
         .padding(.horizontal)
         .frame(height: CGFloat(frameHeight))
@@ -51,6 +61,6 @@ struct CalendarMenu: View {
 
 struct CalendarMenu_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarMenu(viewModel: FoozleViewModel(), startingDate: .constant(Date()), endingDate: .constant(Date()))
+        CalendarMenu(viewModel: FoozleViewModel(), startingDate: .constant(Date()), endingDate: .constant(Date()), searchRange: .constant(true))
     }
 }

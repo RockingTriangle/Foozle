@@ -30,21 +30,17 @@ final class NetworkManager {
         
         guard let url = URL(string: urlString) else {
             completed(.failure(.invalidURL))
-            print("failed url")
             return
         }
-        print(url)
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-            // TODO: - fix error to add to message
-            if let _ = error {
+            if let error = error {
                 completed(.failure(.unableToComplete))
-                print("error")
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n\(error)")
                 return
             }
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                 completed(.failure(.invalidResponse))
-                print("no/wrong response")
                 return
             }
             guard let data = data else {

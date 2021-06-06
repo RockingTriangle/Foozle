@@ -19,12 +19,30 @@ struct PlatformMenu: View {
         HStack {
             Spacer()
             Menu("Platforms") {
-                Button("All") { self.platforms = .all }
-                Button("Computer") { self.platforms = .computer}
-                Button("PlayStation") { self.platforms = .playstation}
-                Button("Xbox") { self.platforms = .xbox }
-                Button("Nintendo") { self.platforms = .nintendo }
-                Button("Mobile") { self.platforms = .mobile }
+                Button("All") {
+                    self.platforms = .all
+                    viewModel.isShowingPlatformSettings = false
+                }
+                Button("Computer") {
+                    self.platforms = .computer
+                    viewModel.isShowingPlatformSettings = false
+                }
+                Button("PlayStation") {
+                    self.platforms = .playstation
+                    viewModel.isShowingPlatformSettings = false
+                }
+                Button("Xbox") {
+                    self.platforms = .xbox
+                    viewModel.isShowingPlatformSettings = false
+                }
+                Button("Nintendo") {
+                    self.platforms = .nintendo
+                    viewModel.isShowingPlatformSettings = false
+                }
+                Button("Mobile") {
+                    self.platforms = .mobile
+                    viewModel.isShowingPlatformSettings = false
+                }
             }
             .menuStyle(MyMenuStyle())
         }
