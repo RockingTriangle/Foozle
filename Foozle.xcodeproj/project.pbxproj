@@ -21,7 +21,7 @@
 		1378DAF726696AC500ADC757 /* MenuStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378DAF626696AC500ADC757 /* MenuStyle.swift */; };
 		1378DAFA266974E700ADC757 /* PlatformMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378DAF9266974E700ADC757 /* PlatformMenu.swift */; };
 		13800A622662D15100362B57 /* FoozleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13800A612662D15100362B57 /* FoozleCollectionCell.swift */; };
-		13800A642662D19A00362B57 /* FoozleCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13800A632662D19A00362B57 /* FoozleCollectionHeader.swift */; };
+		13800A642662D19A00362B57 /* PinnedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13800A632662D19A00362B57 /* PinnedView.swift */; };
 		1391BA97266C3B370095B091 /* GenreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391BA96266C3B370095B091 /* GenreButton.swift */; };
 		1391BA99266C3B4B0095B091 /* PlatformButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391BA98266C3B4B0095B091 /* PlatformButton.swift */; };
 		1391BA9B266C3B600095B091 /* SortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391BA9A266C3B600095B091 /* SortButton.swift */; };
@@ -75,7 +75,7 @@
 		1378DAF626696AC500ADC757 /* MenuStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStyle.swift; sourceTree = "<group>"; };
 		1378DAF9266974E700ADC757 /* PlatformMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformMenu.swift; sourceTree = "<group>"; };
 		13800A612662D15100362B57 /* FoozleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleCollectionCell.swift; sourceTree = "<group>"; };
-		13800A632662D19A00362B57 /* FoozleCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozleCollectionHeader.swift; sourceTree = "<group>"; };
+		13800A632662D19A00362B57 /* PinnedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedView.swift; sourceTree = "<group>"; };
 		1391BA96266C3B370095B091 /* GenreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreButton.swift; sourceTree = "<group>"; };
 		1391BA98266C3B4B0095B091 /* PlatformButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformButton.swift; sourceTree = "<group>"; };
 		1391BA9A266C3B600095B091 /* SortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButton.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 				13A82CE1265D6C1900E56243 /* Cells */,
 				13A82D25265DD49900E56243 /* SearchBarView.swift */,
 				13A82D1E265DC65B00E56243 /* FoozleHeaderView.swift */,
-				13800A632662D19A00362B57 /* FoozleCollectionHeader.swift */,
+				13800A632662D19A00362B57 /* PinnedView.swift */,
 				1331E2A9266A8E6400305FD0 /* SortAndFilterHeader.swift */,
 			);
 			path = "Helper Views";
@@ -458,7 +458,7 @@
 				13466167266C393F00946DE1 /* CalendarButton.swift in Sources */,
 				13EBE28B266984FB00E2D804 /* SettingsButton.swift in Sources */,
 				13A82D26265DD49900E56243 /* SearchBarView.swift in Sources */,
-				13800A642662D19A00362B57 /* FoozleCollectionHeader.swift in Sources */,
+				13800A642662D19A00362B57 /* PinnedView.swift in Sources */,
 				13E5D070265E036600465409 /* LoadingView.swift in Sources */,
 				13A82D0C265D736D00E56243 /* Foozle.xcdatamodeld in Sources */,
 				1391BA99266C3B4B0095B091 /* PlatformButton.swift in Sources */,
