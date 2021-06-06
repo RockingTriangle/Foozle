@@ -1,5 +1,5 @@
 //
-//  FoozleWishListButton.swift
+//  WishListButton.swift
 //  Foozle
 //
 //  Created by Mike Conner on 5/30/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FoozleWishListButton: View {
+struct WishListButton: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     

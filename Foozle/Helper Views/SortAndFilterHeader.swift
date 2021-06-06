@@ -10,38 +10,26 @@ import SwiftUI
 struct SortAndFilterHeader: View {
     
     @ObservedObject var viewModel: FoozleViewModel
+    @State var animate = false
     
     var body: some View {
         HStack {
-            Spacer()
-            VStack {
-                Text("Platroms").bold()
-                Text(viewModel.platformSetting.titleDescription)
+            Group {
+                Spacer()
+                SortButton(viewModel: viewModel)
+                Spacer()
+                PlatformButton(viewModel: viewModel)
+                Spacer()
             }
-            Spacer()
-            VStack {
-                Text("Genres").bold()
-                Text(viewModel.genreSetting.titleDescription)
+            Group {
+                GenreButton(viewModel: viewModel)
+                Spacer()
+                CalendarButton(viewModel: viewModel)
+                Spacer()
+                RefreshButton(viewModel: viewModel)
+                Spacer()
             }
-            Spacer()
-            VStack {
-                Text("Sorting").bold()
-                HStack {
-                    Text(viewModel.sortingSetting.titleDescription)
-                    if  viewModel.sortingSetting == .none {
-                        Text("🚫")
-                    } else if (viewModel.sortingSetting == .reverseName) ||
-                              (viewModel.sortingSetting == .reverseRating) ||
-                              (viewModel.sortingSetting == .reverseReleased) {
-                        Image(systemName: "arrow.down")
-                    } else {
-                        Image(systemName: "arrow.up")
-                    }
-                }
-            }
-            Spacer()
         }
-        .multilineTextAlignment(.center)
     }
 }
 

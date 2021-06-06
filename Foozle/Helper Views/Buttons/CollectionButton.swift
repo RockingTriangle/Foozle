@@ -1,5 +1,5 @@
 //
-//  FoozleCollectionButton.swift
+//  CollectionButton.swift
 //  Foozle
 //
 //  Created by Mike Conner on 5/30/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FoozleCollectionButton: View {
+struct CollectionButton: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
