@@ -31,6 +31,7 @@
 		1391BA9D266C415D0095B091 /* CalendarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391BA9C266C415D0095B091 /* CalendarMenu.swift */; };
 		1391BA9F266C60610095B091 /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391BA9E266C60610095B091 /* RefreshButton.swift */; };
 		1391BAA1266D9A090095B091 /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391BAA0266D9A090095B091 /* UIDevice+Ext.swift */; };
+		1393B7FF266EC44D00E78330 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1393B7FE266EC44D00E78330 /* Launch Screen.storyboard */; };
 		13A015812666C07F00EB44D7 /* WishListGame+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0157D2666C07E00EB44D7 /* WishListGame+CoreDataClass.swift */; };
 		13A015822666C07F00EB44D7 /* WishListGame+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0157E2666C07F00EB44D7 /* WishListGame+CoreDataProperties.swift */; };
 		13A015832666C07F00EB44D7 /* CollectionGame+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0157F2666C07F00EB44D7 /* CollectionGame+CoreDataClass.swift */; };
@@ -88,6 +89,7 @@
 		1391BA9C266C415D0095B091 /* CalendarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMenu.swift; sourceTree = "<group>"; };
 		1391BA9E266C60610095B091 /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 		1391BAA0266D9A090095B091 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
+		1393B7FE266EC44D00E78330 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		13A0157D2666C07E00EB44D7 /* WishListGame+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishListGame+CoreDataClass.swift"; sourceTree = "<group>"; };
 		13A0157E2666C07F00EB44D7 /* WishListGame+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishListGame+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		13A0157F2666C07F00EB44D7 /* CollectionGame+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionGame+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				13E5D07A26602F1700465409 /* CollectionView.swift */,
 				13E5D05B265DDB5200465409 /* GameDetailView.swift */,
 				135137ED2668668100CF6688 /* CollectionGameDetailView.swift */,
+				1393B7FE266EC44D00E78330 /* Launch Screen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1393B7FF266EC44D00E78330 /* Launch Screen.storyboard in Resources */,
 				13A82CD2265D6B7F00E56243 /* Preview Assets.xcassets in Resources */,
 				13A82CCF265D6B7F00E56243 /* Assets.xcassets in Resources */,
 			);
