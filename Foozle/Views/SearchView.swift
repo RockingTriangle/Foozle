@@ -17,18 +17,21 @@ struct SearchView: View {
             Group {
                 FoozleHeaderView()
                     .ignoresSafeArea()
+                    .padding(.top, -50)
                 SortAndFilterHeader(viewModel: viewModel)
-                if viewModel.isShowingSortSettings {
-                    SortingMenu(viewModel: viewModel, sorting: $viewModel.sortingSetting)
-                }
-                if viewModel.isShowingPlatformSettings {
-                    PlatformMenu(viewModel: viewModel, platforms: $viewModel.platformSetting)
-                }
-                if viewModel.isShowingGenreSettings {
-                    GenreMenu(viewModel: viewModel, genre: $viewModel.genreSetting)
-                }
-                if viewModel.isShowingCalendarSettings {
-                    CalendarMenu(viewModel: viewModel, startingDate: $viewModel.startingDate, endingDate: $viewModel.endingDate, searchRange: $viewModel.searchRangeOfDates)
+                ZStack {
+                    if viewModel.isShowingSortSettings {
+                        SortingMenu(viewModel: viewModel, sorting: $viewModel.sortingSetting)
+                    }
+                    if viewModel.isShowingPlatformSettings {
+                        PlatformMenu(viewModel: viewModel, platforms: $viewModel.platformSetting)
+                    }
+                    if viewModel.isShowingGenreSettings {
+                        GenreMenu(viewModel: viewModel, genre: $viewModel.genreSetting)
+                    }
+                    if viewModel.isShowingCalendarSettings {
+                        CalendarMenu(viewModel: viewModel, startingDate: $viewModel.startingDate, endingDate: $viewModel.endingDate, searchRange: $viewModel.searchRangeOfDates)
+                    }
                 }
                 Spacer()
                     .frame(height: 10)

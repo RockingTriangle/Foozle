@@ -215,6 +215,7 @@ struct GameDetailView: View {
         .background(Color(.systemBackground))
         .cornerRadius(24)
         .shadow(radius: 40)
+        .offset(x: 0, y: -UIScreen.screenHeight * 0.04)
         Spacer()
             .frame(height: UIScreen.screenHeight / 8)
     }
