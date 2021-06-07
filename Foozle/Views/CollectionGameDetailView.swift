@@ -42,10 +42,17 @@ struct CollectionGameDetailView: View {
                 .padding(.horizontal, 10)
             
             ScrollView {
-                GameRemoteImage(urlString: game.backgroundImage ?? "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noResults.png")
-                    .scaledToFill()
-                    .frame(width: UIScreen.screenWidth - 80, height: 250)
-                    .clipShape(RoundedRectangle(cornerRadius: 25))
+                if let backgroundImage = game.backgroundImage {
+                    GameRemoteImage(urlString: backgroundImage)
+                        .scaledToFill()
+                        .frame(width: UIScreen.screenWidth - 80, height: 250)
+                        .clipShape(RoundedRectangle(cornerRadius: 25))
+                } else {
+                    GameRemoteImage(urlString: "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noImage.png")
+                        .scaledToFit()
+                        .frame(width: UIScreen.screenWidth - 80, height: 250)
+                        .clipShape(RoundedRectangle(cornerRadius: 25))
+                }
                 
                 VStack(alignment: .center) {
                     Text("Where to buy?")
@@ -55,8 +62,8 @@ struct CollectionGameDetailView: View {
                     Spacer()
                         .frame(height: 8)
                                         
-                    let row = [GridItem()]
-                    let rows = [GridItem(), GridItem()]
+                    let row = [GridItem(.fixed(30))]
+                    let rows = [GridItem(.fixed(30)), GridItem(.fixed(30))]
                     
                     HStack(alignment: .center) {
                         Spacer()
@@ -83,9 +90,9 @@ struct CollectionGameDetailView: View {
                                 ForEach(0 ..< stores.count) { store in
                                     stores[store]
                                         .frame(width: 30, height: 30)
-                                        .aspectRatio(contentMode: .fill)
+                                        .aspectRatio(contentMode: .fit)
                                         .background(Color(.white))
-                                        .padding(18)
+                                        .padding(8)
                                 }
                             })
                         }
@@ -102,8 +109,8 @@ struct CollectionGameDetailView: View {
                     
                     if let website = URL(string: viewModel.additionalGameDetail?.website ?? "") {
                         HStack {
-                            Link(game.name, destination: website)
-                            Image(systemName: "arrowshape.turn.up.right")
+                            let arrow = Image(systemName: "arrowshape.turn.up.right")
+                            Link("\(game.name) \(arrow)", destination: website)
                         }
                         .foregroundColor(.blue)
                         .multilineTextAlignment(.center)
@@ -175,8 +182,7 @@ struct CollectionGameDetailView: View {
                         .frame(minWidth: 0, idealWidth: UIScreen.screenWidth / 2 - 24, maxWidth: UIScreen.screenWidth / 2 - 24, minHeight: 0, idealHeight: 100, maxHeight: .infinity, alignment: .center)
                     }
                     .padding(.vertical, 8)
-                    .padding(.horizontal, 24)
-                    
+                    .padding(.horizontal, 24)                    
                 }
                 
                 Divider()
@@ -206,6 +212,10 @@ struct CollectionGameDetailView: View {
                 .foregroundColor(.gray)
                 .padding()
             }
+            .blur(radius: viewModel.isLoading ? 20 : 0)
+            if viewModel.isLoading {
+                LoadingView()
+            }
         }
         .opacity(opacity)
         .animate(using: .easeIn(duration: 1), {
@@ -214,6 +224,10 @@ struct CollectionGameDetailView: View {
         .onAppear {
             viewModel.selectedGame = game
             viewModel.getAdditionalGameDetails()
+            viewModel.isShowingSortSettings = false
+            viewModel.isShowingPlatformSettings = false
+            viewModel.isShowingGenreSettings = false
+            viewModel.isShowingCalendarSettings = false
         }
         .frame(width: UIScreen.screenWidth - 48, height: UIScreen.screenHeight * 0.80)
         .background(Color(.systemBackground))

@@ -40,16 +40,15 @@ struct GameDetailResponse: Codable {
         }
         return developerString
     }
-
-}// End of class
+} // End of struct
 
 
 struct Publisher: Codable {
     let id: Int
     let name: String
-}
+} // End of struct
 
 struct Developer: Codable {
     let id: Int
     let name: String
-}
+} // End of struct

@@ -13,10 +13,10 @@ struct CalendarMenu: View {
     
     @Binding var startingDate: Date
     @Binding var endingDate: Date
+    @Binding var searchRange: Bool
     
     @State var frameHeight = 0
     @State var opacity = 0.0
-    @Binding var searchRange: Bool
     
     var body: some View {
         HStack {

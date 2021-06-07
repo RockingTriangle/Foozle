@@ -15,32 +15,31 @@ struct FoozleTabView: View {
     @State var tabIndex: Int
     
     var body: some View {
-            TabView(selection: $tabIndex) {
-                HomeView(viewModel: viewModel)
-                    .tabItem {
-                        Image(systemName: "newspaper")
-                        Text("Trending")
-                            
-                    }
-                    .tag(1)
-                SearchView(viewModel: viewModel)
-                    .tabItem {
-                        Image(systemName: "binoculars")
-                        Text("Search")
-                           
-                    }
-                    .tag(2)
-                CollectionView(viewModel: viewModel)
-                    .tabItem {
-                        Image(systemName: "books.vertical")
-                        Text("Collection")
-                            
-                    }
-                    .tag(3)
-            }
-            .accentColor(.primary)
+        TabView(selection: $tabIndex) {
+            HomeView(viewModel: viewModel)
+                .tabItem {
+                    Image(systemName: "newspaper")
+                    Text("Results")
+                    
+                }
+                .tag(1)
+            SearchView(viewModel: viewModel)
+                .tabItem {
+                    Image(systemName: "binoculars")
+                    Text("Search")
+                    
+                }
+                .tag(2)
+            CollectionView(viewModel: viewModel)
+                .tabItem {
+                    Image(systemName: "books.vertical")
+                    Text("Collection")
+                    
+                }
+                .tag(3)
         }
-//    }
+        .accentColor(.primary)
+    }
 }
 
 struct FoozleTabView_Previews: PreviewProvider {

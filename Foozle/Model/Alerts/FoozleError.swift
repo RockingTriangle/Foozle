@@ -12,4 +12,7 @@ enum FoozleError: Error {
     case invalidResponse
     case invalidData
     case unableToComplete
+    case noResultsFromServer
+    case errorLoadingPersistentStore
+    case unableToSaveContext
 }

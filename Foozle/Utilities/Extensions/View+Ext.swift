@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension View {
+    
     func animate(using animation: Animation = Animation.easeInOut(duration: 1), _ action: @escaping () -> Void) -> some View {
         onAppear {
             withAnimation(animation) {
@@ -15,4 +16,4 @@ extension View {
             }
         }
     }
-}
+} // End of extension

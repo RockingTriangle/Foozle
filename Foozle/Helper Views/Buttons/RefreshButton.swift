@@ -27,7 +27,7 @@ struct RefreshButton: View {
             viewModel.getGamesForMainView()
             if viewModel.gamesFromSearch.count != 0 {
                 viewModel.gamesFromSearch = []
-                viewModel.getGamesFromSearch()
+                viewModel.getGamesForSearchView()
             }
             viewModel.isShowingSortSettings = false
             viewModel.isShowingCalendarSettings = false
