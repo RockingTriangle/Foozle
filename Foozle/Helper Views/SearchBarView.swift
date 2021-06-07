@@ -17,7 +17,7 @@ struct SearchBarView: View {
         HStack(alignment: .center) {            
             TextField("Search...", text: $text, onCommit: {
                 viewModel.searchText = text
-                viewModel.getGamesFromSearch()
+                viewModel.getGamesForSearchView()
                 })
                 .padding(7)
                 .padding(.horizontal, 25)
@@ -33,7 +33,7 @@ struct SearchBarView: View {
                         if isEditing {
                             Button(action: {
                                 self.text = ""
-                                
+                                viewModel.searchText = ""
                             }) {
                                 Image(systemName: "multiply.circle.fill")
                                     .foregroundColor(.gray)
@@ -52,7 +52,7 @@ struct SearchBarView: View {
                 Button(action: {
                     self.isEditing = false
                     self.text = ""
-                    
+                    viewModel.searchText = ""
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }) {
                     Text("Cancel")

@@ -11,7 +11,9 @@ import CoreData
 protocol AnyCollectionType {
     var backgroundImage: String { get }
     var name: String { get }
-}
+} // End of protocol
 
+
+// Protocol conformance for using with CollectionCell
 extension CollectionGame: AnyCollectionType {}
 extension WishListGame: AnyCollectionType {}

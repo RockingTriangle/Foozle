@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyMenuStyle: MenuStyle {
+    
     func makeBody(configuration: Configuration) -> some View {
         Menu(configuration)
             .padding(.vertical, 5)
@@ -18,4 +19,4 @@ struct MyMenuStyle: MenuStyle {
                     .fill(Color(.tertiarySystemFill))
             )
     }
-}
+} // End of struct
