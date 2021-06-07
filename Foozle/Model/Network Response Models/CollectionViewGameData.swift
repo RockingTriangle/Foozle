@@ -27,7 +27,7 @@ struct CollectionViewGameData: Codable {
     lazy var isOnWishList: Bool = false
     
     func displayBackgroundImage() -> String {
-        backgroundImage != nil ? backgroundImage! : "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noResults.png"
+        backgroundImage != nil ? backgroundImage! : "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noImage.png"
     }
     
     func displayReleasedData() -> String {

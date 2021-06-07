@@ -20,10 +20,10 @@ struct CoreDataManager {
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
-
         container.loadPersistentStores { description, error in
             if let error = error {
-                fatalError("Error: \(error.localizedDescription)")
+                
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n\(error)")
             }
         }
     }
@@ -36,7 +36,7 @@ struct CoreDataManager {
             do {
                 try context.save()
             } catch {
-                // Show some error here
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n\(error)")
             }
         }
     }
@@ -48,7 +48,7 @@ struct CoreDataManager {
         newGame.uniqueID = UUID()
         newGame.name = viewModel.selectedGame?.name ?? "no name"
         newGame.slug = viewModel.selectedGame?.slug ?? "no-slug"
-        newGame.backgroundImage = viewModel.selectedGame?.backgroundImage ?? "white"
+        newGame.backgroundImage = viewModel.selectedGame?.backgroundImage ?? "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noImage.png"
         newGame.descripitionRaw = viewModel.additionalGameDetail?.descriptionRaw ?? "no description"
         newGame.developers = viewModel.additionalGameDetail?.displayDeveloperData() ?? "no developers"
         newGame.esrbRating = viewModel.selectedGame?.displayESRBData() ?? "no rating"
@@ -75,7 +75,7 @@ struct CoreDataManager {
         newGame.uniqueID = UUID()
         newGame.name = viewModel.selectedGame?.name ?? "no name"
         newGame.slug = viewModel.selectedGame?.slug ?? "noslug"
-        newGame.backgroundImage = viewModel.selectedGame?.backgroundImage ?? "white"
+        newGame.backgroundImage = viewModel.selectedGame?.backgroundImage ?? "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noImage.png"
         newGame.descripitionRaw = viewModel.additionalGameDetail?.descriptionRaw ?? "no description"
         newGame.developers = viewModel.additionalGameDetail?.displayDeveloperData() ?? "no developers"
         newGame.esrbRating = viewModel.selectedGame?.displayESRBData() ?? "no rating"

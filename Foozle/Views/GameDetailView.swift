@@ -41,10 +41,17 @@ struct GameDetailView: View {
                 .padding(.horizontal, 10)
             
             ScrollView {
-                GameRemoteImage(urlString: game.backgroundImage ?? "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noResults.png")
-                    .scaledToFill()
-                    .frame(width: UIScreen.screenWidth - 80, height: 250)
-                    .clipShape(RoundedRectangle(cornerRadius: 25))
+                if let backgroundImage = game.backgroundImage {
+                    GameRemoteImage(urlString: backgroundImage)
+                        .scaledToFill()
+                        .frame(width: UIScreen.screenWidth - 80, height: 250)
+                        .clipShape(RoundedRectangle(cornerRadius: 25))
+                } else {
+                    GameRemoteImage(urlString: "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noImage.png")
+                        .scaledToFit()
+                        .frame(width: UIScreen.screenWidth - 80, height: 250)
+                        .clipShape(RoundedRectangle(cornerRadius: 25))
+                }
                 
                 VStack(alignment: .center) {
                     Text("Where to buy?")
@@ -54,8 +61,8 @@ struct GameDetailView: View {
                     Spacer()
                         .frame(height: 8)
                                         
-                    let row = [GridItem()]
-                    let rows = [GridItem(), GridItem()]
+                    let row = [GridItem(.fixed(30))]
+                    let rows = [GridItem(.fixed(30)), GridItem(.fixed(30))]
                     
                     HStack(alignment: .center) {
                         Spacer()
@@ -82,9 +89,9 @@ struct GameDetailView: View {
                                 ForEach(0 ..< stores.count) { store in
                                     stores[store]
                                         .frame(width: 30, height: 30)
-                                        .aspectRatio(contentMode: .fill)
+                                        .aspectRatio(contentMode: .fit)
                                         .background(Color(.white))
-                                        .padding(18)
+                                        .padding(8)
                                 }
                             })
                         }
@@ -101,8 +108,8 @@ struct GameDetailView: View {
                     
                     if let website = URL(string: viewModel.additionalGameDetail?.website ?? "") {
                         HStack {
-                            Link(game.name, destination: website)
-                            Image(systemName: "arrowshape.turn.up.right")
+                            let arrow = Image(systemName: "arrowshape.turn.up.right")
+                            Link("\(game.name) \(arrow)", destination: website)
                         }
                         .foregroundColor(.blue)
                         .multilineTextAlignment(.center)
@@ -175,7 +182,6 @@ struct GameDetailView: View {
                     }
                     .padding(.vertical, 8)
                     .padding(.horizontal, 24)
-                    
                 }
                 
                 Divider()

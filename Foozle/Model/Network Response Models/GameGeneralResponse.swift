@@ -9,12 +9,14 @@ import SwiftUI
 
 struct GameGeneralResponse: Codable {
     
+    // MARK: - Properties
     let results: [GameResponse]
     
 } // End of struct
 
-
 struct GameResponse: Codable, Identifiable {
+    
+    // MARK: - Properties
     let id: Int
     let slug: String
     let name: String
@@ -31,7 +33,7 @@ struct GameResponse: Codable, Identifiable {
     
     // MARK: - Functions
     func displayBackgroundImage() -> String {
-        backgroundImage != nil ? backgroundImage! : "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noResults.png"
+        backgroundImage != nil ? backgroundImage! : "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noImage.png"
     }
     
     func displayReleasedData() -> String {
@@ -103,7 +105,7 @@ struct Platforms: Codable {
 struct Platform: Codable, Identifiable {
     let id: Int
     let name: String
-}
+} // End of struct
 
 struct Genres: Codable, Identifiable {
     let id: Int
@@ -117,7 +119,7 @@ struct Stores: Codable {
 struct Store: Codable, Identifiable {
     let id: Int
     let name: String
-}
+} // End of struct
 
 struct ESRBRating: Codable, Identifiable {
     let id: Int

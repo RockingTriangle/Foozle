@@ -31,7 +31,6 @@ struct CollectionView: View {
                         Divider()
                             .padding(.vertical, 8)
                         GeometryReader { geometry in
-//                            Spacer()
                             VStack {
                                 ScrollView(.horizontal) {
                                     LazyHGrid(rows: rows) {
@@ -90,8 +89,7 @@ struct CollectionView: View {
             }
             .onDisappear {
                 viewModel.isShowingCollectionDetail = false
-            }
-            
+            }            
         }
     }
 }

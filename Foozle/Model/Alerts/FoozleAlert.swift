@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct AlertItem: Identifiable {
+    
     let id = UUID()
     let title: Text
     let message: Text
     let dismissButton: Alert.Button
-
+    
 } // End of struct
 
 struct AlertContext {
     
-    //MARK: - NETWORK ALERTS
+    //MARK: - ALERTS
     static let invalidData = AlertItem(title: Text("Hmmm..."),
                                                 message: Text("We're sorry but the data received from the server was invalid. Please contact the developer with the request details to investigate why this occurred."),
                                                 dismissButton: .default(Text("OK")))
@@ -36,6 +37,14 @@ struct AlertContext {
     static let noResultsFromSearch = AlertItem(title: Text("Bummer..."),
                                                      message: Text("There were no results for your search parameters. Please make some changes and try again."),
                                                      dismissButton: .default(Text("OK")))
+    
+    static let errorLoadingPersistentStore = AlertItem(title: Text("This isn't good..."),
+                                                       message: Text("There was an issue loading the persistent stores, close and reopen the app."),
+                                                       dismissButton: .default(Text("OK")))
+    
+    static let unableToSaveContext = AlertItem(title: Text("Please forgive me..."),
+                                                       message: Text("We were unable to save your data, please try again."),
+                                                       dismissButton: .default(Text("OK")))
     
 } // End of struct
 

@@ -55,6 +55,5 @@ struct StoreLinks {
             storesArray = []
         }
         return storesArray
-    }
-    
+    }    
 } // End of struct

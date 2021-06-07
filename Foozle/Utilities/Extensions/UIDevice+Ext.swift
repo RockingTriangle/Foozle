@@ -8,8 +8,9 @@
 import SwiftUI
 
 extension UIDevice {
+    
     static var hasNotch: Bool {
         let bottom = UIApplication.shared.windows.first(where: \.isKeyWindow)?.safeAreaInsets.bottom ?? 0
         return bottom > 0
     }
-}
+} // End of extension

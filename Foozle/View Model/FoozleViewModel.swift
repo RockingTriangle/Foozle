@@ -27,7 +27,6 @@ final class FoozleViewModel: ObservableObject {
     @Published var isShowingPlatformSettings = false
     @Published var isShowingGenreSettings = false
     @Published var isShowingCalendarSettings = false
-    
     @Published var isShowingSettings = false
     
     @Published var sortingSetting: NetworkManager.Sorting = .reverseMetaRating
@@ -83,13 +82,19 @@ final class FoozleViewModel: ObservableObject {
                         foozleAlert = AlertContext.invalidURL
                     case .unableToComplete:
                         foozleAlert = AlertContext.unableToComplete
+                    case .noResultsFromServer:
+                        foozleAlert = AlertContext.noResultsFromSearch
+                    case .errorLoadingPersistentStore:
+                        foozleAlert = AlertContext.errorLoadingPersistentStore
+                    case .unableToSaveContext:
+                        foozleAlert = AlertContext.unableToSaveContext
                     }
                 }
             }
         }
     }
     
-    func getGamesFromSearch() {
+    func getGamesForSearchView() {
         isLoading = true
         NetworkManager.shared.getGames(endpoint: .games, sorting: sortingSetting, genre: genreSetting, platform: platformSetting, searchTerm: searchText, dateRange: getDateRange()) { [self] result in
             DispatchQueue.main.async {
@@ -108,6 +113,12 @@ final class FoozleViewModel: ObservableObject {
                         foozleAlert = AlertContext.invalidURL
                     case .unableToComplete:
                         foozleAlert = AlertContext.unableToComplete
+                    case .noResultsFromServer:
+                        foozleAlert = AlertContext.noResultsFromSearch
+                    case .errorLoadingPersistentStore:
+                        foozleAlert = AlertContext.errorLoadingPersistentStore
+                    case .unableToSaveContext:
+                        foozleAlert = AlertContext.unableToSaveContext
                     }
                 }
             }
@@ -132,6 +143,12 @@ final class FoozleViewModel: ObservableObject {
                         foozleAlert = AlertContext.invalidURL
                     case .unableToComplete:
                         foozleAlert = AlertContext.unableToComplete
+                    case .noResultsFromServer:
+                        foozleAlert = AlertContext.noResultsFromSearch
+                    case .errorLoadingPersistentStore:
+                        foozleAlert = AlertContext.errorLoadingPersistentStore
+                    case .unableToSaveContext:
+                        foozleAlert = AlertContext.unableToSaveContext
                     }
                 }
             }
@@ -140,7 +157,7 @@ final class FoozleViewModel: ObservableObject {
     
     func getCollectionViewGameDetails(collection: Bool, wishList: Bool) {
         isLoading = true
-        NetworkManager.shared.getGameDataForCollectionView(endpoint: .games, slug: collectionViewSlugName) { [self] result in
+        NetworkManager.shared.getGameDetailsForCollectionView(endpoint: .games, slug: collectionViewSlugName) { [self] result in
             DispatchQueue.main.async {
                 isLoading = false
                 switch result {
@@ -156,6 +173,12 @@ final class FoozleViewModel: ObservableObject {
                         foozleAlert = AlertContext.invalidURL
                     case .unableToComplete:
                         foozleAlert = AlertContext.unableToComplete
+                    case .noResultsFromServer:
+                        foozleAlert = AlertContext.noResultsFromSearch
+                    case .errorLoadingPersistentStore:
+                        foozleAlert = AlertContext.errorLoadingPersistentStore
+                    case .unableToSaveContext:
+                        foozleAlert = AlertContext.unableToSaveContext
                     }
                 }
             }
@@ -163,7 +186,7 @@ final class FoozleViewModel: ObservableObject {
     }
     
     func convertGameData(game: CollectionViewGameData, collection: Bool, wishList: Bool) {
-        let collectionGame = GameResponse(id: 99, slug: game.slug, name: game.name, backgroundImage: game.backgroundImage, released: game.released, platforms: game.platforms, genres: game.genres, stores: game.stores, esrbRating: game.esrbRating, isInCollection: collection, isOnWishList: wishList)
+        let collectionGame = GameResponse(id: game.id, slug: game.slug, name: game.name, backgroundImage: game.backgroundImage, released: game.released, platforms: game.platforms, genres: game.genres, stores: game.stores, esrbRating: game.esrbRating, isInCollection: collection, isOnWishList: wishList)
         
         selectedGame = collectionGame
         isInCollection = collection

@@ -14,8 +14,13 @@ struct FoozleRowCell: View {
     var body: some View {
         HStack(alignment: .center) {
             ZStack(alignment: .bottom) {
-                GameRemoteImage(urlString: game.backgroundImage ?? "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noResults.png")
-                    .scaledToFill()
+                if let gameImage = game.backgroundImage {                    
+                    GameRemoteImage(urlString: gameImage)
+                        .scaledToFill()
+                } else {
+                    GameRemoteImage(urlString: "https://www.rockingtriangle.co/wp-content/uploads/2021/05/noImage.png")
+                        .scaledToFit()
+                }
                 Rectangle()
                     .foregroundColor(Color(.sRGB, white: 1.0, opacity: 0.6))
                     .frame(width: UIScreen.screenWidth * 0.9, height: 40, alignment: .center)
