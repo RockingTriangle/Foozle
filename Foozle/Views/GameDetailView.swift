@@ -54,7 +54,8 @@ struct GameDetailView: View {
                     Spacer()
                         .frame(height: 8)
                                         
-                    let rows = [GridItem()]
+                    let row = [GridItem()]
+                    let rows = [GridItem(), GridItem()]
                     
                     HStack(alignment: .center) {
                         Spacer()
@@ -66,14 +67,24 @@ struct GameDetailView: View {
                                 .frame(width: 30, height: 30)
                                 .aspectRatio(contentMode: .fit)
                                 .background(Color(.white))
-                        } else {
-                            LazyHGrid(rows: rows, content: {
+                        } else if stores.count < 5 {
+                            LazyHGrid(rows: row, content: {
                                 ForEach(0 ..< stores.count) { store in
                                     stores[store]
                                         .frame(width: 30, height: 30)
                                         .aspectRatio(contentMode: .fit)
                                         .background(Color(.white))
-                                        .padding(.horizontal, 8)
+                                        .padding(8)
+                                }
+                            })
+                        } else {
+                            LazyHGrid(rows: rows, content: {
+                                ForEach(0 ..< stores.count) { store in
+                                    stores[store]
+                                        .frame(width: 30, height: 30)
+                                        .aspectRatio(contentMode: .fill)
+                                        .background(Color(.white))
+                                        .padding(18)
                                 }
                             })
                         }
@@ -215,6 +226,7 @@ struct GameDetailView: View {
         .background(Color(.systemBackground))
         .cornerRadius(24)
         .shadow(radius: 40)
+        .offset(x: 0, y: -UIScreen.screenHeight * 0.04)
         Spacer()
             .frame(height: UIScreen.screenHeight / 8)
     }

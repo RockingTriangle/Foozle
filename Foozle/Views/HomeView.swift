@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var viewModel: FoozleViewModel
-    var navigationTitle: String
     
     var opacity: Double = 0
     
@@ -19,22 +18,25 @@ struct HomeView: View {
             Group {
                 FoozleHeaderView()
                     .ignoresSafeArea()
+                    .padding(.top, -50)
                 SortAndFilterHeader(viewModel: viewModel)
-                if viewModel.isShowingSortSettings {
-                    SortingMenu(viewModel: viewModel, sorting: $viewModel.sortingSetting)
-                }
-                if viewModel.isShowingPlatformSettings {
-                    PlatformMenu(viewModel: viewModel, platforms: $viewModel.platformSetting)
-                }
-                if viewModel.isShowingGenreSettings {
-                    GenreMenu(viewModel: viewModel, genre: $viewModel.genreSetting)
-                }
-                if viewModel.isShowingCalendarSettings {
-                    CalendarMenu(viewModel: viewModel, startingDate: $viewModel.startingDate, endingDate: $viewModel.endingDate, searchRange: $viewModel.searchRangeOfDates)
+                    .frame(height: 35)
+                ZStack {
+                    if viewModel.isShowingSortSettings {
+                        SortingMenu(viewModel: viewModel, sorting: $viewModel.sortingSetting)
+                    }
+                    if viewModel.isShowingPlatformSettings {
+                        PlatformMenu(viewModel: viewModel, platforms: $viewModel.platformSetting)
+                    }
+                    if viewModel.isShowingGenreSettings {
+                        GenreMenu(viewModel: viewModel, genre: $viewModel.genreSetting)
+                    }
+                    if viewModel.isShowingCalendarSettings {
+                        CalendarMenu(viewModel: viewModel, startingDate: $viewModel.startingDate, endingDate: $viewModel.endingDate, searchRange: $viewModel.searchRangeOfDates)
+                    }
                 }
                 Divider()
                     .padding(0)
-                
                 NavigationView {
                     List() {
                         ForEach(viewModel.gamesFromMainView) { game in
@@ -66,6 +68,10 @@ struct HomeView: View {
         }
         .onDisappear {
             viewModel.isShowingDetail = false
+            viewModel.isShowingSortSettings = false
+            viewModel.isShowingPlatformSettings = false
+            viewModel.isShowingGenreSettings = false
+            viewModel.isShowingCalendarSettings = false
         }
         .alert(item: $viewModel.foozleAlert) { foozleAlertItem in
             Alert(title: foozleAlertItem.title, message: foozleAlertItem.message, dismissButton: foozleAlertItem.dismissButton)
@@ -73,3 +79,8 @@ struct HomeView: View {
     }
 }
 
+struct HomeView_Preview: PreviewProvider {
+    static var previews: some View {
+        HomeView(viewModel: FoozleViewModel())
+    }
+}
