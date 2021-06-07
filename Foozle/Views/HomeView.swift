@@ -68,6 +68,10 @@ struct HomeView: View {
         }
         .onDisappear {
             viewModel.isShowingDetail = false
+            viewModel.isShowingSortSettings = false
+            viewModel.isShowingPlatformSettings = false
+            viewModel.isShowingGenreSettings = false
+            viewModel.isShowingCalendarSettings = false
         }
         .alert(item: $viewModel.foozleAlert) { foozleAlertItem in
             Alert(title: foozleAlertItem.title, message: foozleAlertItem.message, dismissButton: foozleAlertItem.dismissButton)

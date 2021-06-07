@@ -17,12 +17,13 @@ struct FoozleCollectionCell<T: AnyCollectionType>: View {
                 GameRemoteImage(urlString: game.backgroundImage)
                     .scaledToFill()
             }
-            .frame(width: UIScreen.screenWidth * 0.3, height: 100, alignment: .bottom)
+            .frame(width: UIScreen.screenWidth * 0.3, alignment: .bottom)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             Text(game.name)
                 .foregroundColor(.primary)
                 .lineLimit(2)
-                .minimumScaleFactor(0.1)
+                .minimumScaleFactor(0.4)
+                .frame(width: UIScreen.screenWidth * 0.3, height: UIScreen.screenHeight * 0.03, alignment: .center)
         }
     }
 }

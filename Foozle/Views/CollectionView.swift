@@ -21,7 +21,6 @@ struct CollectionView: View {
     
     var body: some View {
         let rows = [GridItem(.flexible()), GridItem(.flexible())]
-        
         ZStack {
             Group {
                 VStack(alignment: .center, spacing: 0) {
@@ -30,9 +29,9 @@ struct CollectionView: View {
                             .ignoresSafeArea()
                             .padding(.top, -50)
                         Divider()
-                            .padding(.vertical, 16)
+                            .padding(.vertical, 8)
                         GeometryReader { geometry in
-                            Spacer()
+//                            Spacer()
                             VStack {
                                 ScrollView(.horizontal) {
                                     LazyHGrid(rows: rows) {
@@ -48,7 +47,7 @@ struct CollectionView: View {
                                         }
                                     }
                                 }
-                                .frame(height: geometry.size.height * 0.475)
+                                .frame(height: UIDevice.hasNotch ? geometry.size.height * 0.475 : geometry.size.height * 0.45)
                                 .padding(.horizontal, 8)
                                 
                                 Divider()
@@ -68,7 +67,7 @@ struct CollectionView: View {
                                         }
                                     }
                                 }
-                                .frame(height: geometry.size.height * 0.475)
+                                .frame(height: UIDevice.hasNotch ? geometry.size.height * 0.475 : geometry.size.height * 0.45)
                                 .padding(.horizontal, 8)
                             }
                         }

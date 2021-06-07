@@ -19,6 +19,7 @@ struct SearchView: View {
                     .ignoresSafeArea()
                     .padding(.top, -50)
                 SortAndFilterHeader(viewModel: viewModel)
+                    .frame(height: 35)
                 ZStack {
                     if viewModel.isShowingSortSettings {
                         SortingMenu(viewModel: viewModel, sorting: $viewModel.sortingSetting)
@@ -70,6 +71,10 @@ struct SearchView: View {
         }
         .onDisappear {
             viewModel.isShowingDetail = false
+            viewModel.isShowingSortSettings = false
+            viewModel.isShowingPlatformSettings = false
+            viewModel.isShowingGenreSettings = false
+            viewModel.isShowingCalendarSettings = false
         }
     }
 }
