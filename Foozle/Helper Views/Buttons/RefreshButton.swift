@@ -25,7 +25,10 @@ struct RefreshButton: View {
         .onTapGesture {
             viewModel.gamesFromMainView = []
             viewModel.getGamesForMainView()
-            viewModel.gamesFromSearch = []
+            if viewModel.gamesFromSearch.count != 0 {
+                viewModel.gamesFromSearch = []
+                viewModel.getGamesFromSearch()
+            }
             viewModel.isShowingSortSettings = false
             viewModel.isShowingCalendarSettings = false
             viewModel.isShowingPlatformSettings = false

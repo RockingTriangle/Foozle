@@ -28,9 +28,9 @@ struct CollectionView: View {
                     Group {
                         FoozleHeaderView()
                             .ignoresSafeArea()
-                        
+                            .padding(.top, -50)
                         Divider()
-                            .padding(.bottom, 8)
+                            .padding(.vertical, 16)
                         GeometryReader { geometry in
                             Spacer()
                             VStack {
