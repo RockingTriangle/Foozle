@@ -33,7 +33,7 @@ final class FoozleViewModel: ObservableObject {
     @Published var platformSetting: NetworkManager.Platforms = .all
     @Published var genreSetting: NetworkManager.Genres = .all
     
-    @Published var startingDate: Date = Date().addingTimeInterval(Date().timeIntervalSinceNow - Date().timeIntervalSince1970) {
+    @Published var startingDate: Date = Date().addingTimeInterval(Date().timeIntervalSinceNow - (Date().timeIntervalSince1970)/10) {
         didSet {
             if startingDate == Date() || startingDate >= endingDate {
                 startingDate = endingDate.addingTimeInterval(-86400)
@@ -47,7 +47,7 @@ final class FoozleViewModel: ObservableObject {
             }
         }
     }
-    @Published var searchRangeOfDates = false
+    @Published var searchRangeOfDates = true
     
     @Published var foozleAlert: AlertItem?
 
