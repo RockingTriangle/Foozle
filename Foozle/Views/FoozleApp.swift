@@ -17,6 +17,7 @@ struct FoozleApp: App {
         WindowGroup {
             FoozleTabView(tabIndex: 1)
                 .environment(\.managedObjectContext, coreDataManager.container.viewContext)
+                .preferredColorScheme(.light)
         }
         .onChange(of: scenePhase) { _ in
             coreDataManager.save()

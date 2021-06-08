@@ -47,9 +47,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash" width="1024" height="1024"/>
+        <image name="splash" width="250" height="250"/>
         <namedColor name="background">
-            <color red="0.79183620210000005" green="0.82400351760000001" blue="0.83556550740000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.79199999570846558" green="0.82400000095367432" blue="0.83600002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
